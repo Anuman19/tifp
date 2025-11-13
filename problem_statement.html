@@ -52,6 +52,11 @@
             margin-bottom: 5px;
             font-size: 1.2em;
         }
+        /* New style to make key risk text stand out */
+        .highlight-risk {
+            color: #e74c3c; /* Bright red color for emphasis */
+            font-weight: bold;
+        }
         .h5w-statement {
             margin-top: 40px;
             padding: 25px;
@@ -72,44 +77,44 @@
 <div class="container">
     <div class="header">
         <h1>PROBLEM STATEMENT</h1>
-        <p>Project: GenAI Red Teaming for SMEs | Goal: Summarize the central problem formulation : 4</p>
+        <p>Project: GenAI Red Teaming for SMEs | Goal: Summarize the central problem formulation</p>
     </div>
 
     <div class="info-box">
-        <strong>Brief Instructions:</strong> The Problem Statement summarizes the central problem formulation in one sentence to develop a common understanding of the problem: 4.
+        <strong>Brief Instructions:</strong> The Problem Statement summarizes the central problem formulation in one sentence to develop a common understanding of the problem.
     </div>
 
-    <h2>Preparatory Questions (The 5 W's + How) : 5</h2>
+    <h2>Preparatory Questions (The 5 W's + How)</h2>
 
     <div class="prep-questions">
         <div class="question-box">
-            <strong>Who? (Actor)</strong> : 12
+            <strong>Who? (Actor)</strong>
             <p>Small and Medium-sized Enterprises (SMEs) in high-compliance sectors (e.g., finance, legal) and their IT/Security Managers.</p>
         </div>
         <div class="question-box">
-            <strong>What? (Context)</strong> : 13, 24
-            <p>The security vulnerabilities of their internal and customer-facing **Retrieval-Augmented Generation (RAG) GenAI Bots** leading to **data leakage**.</p>
+            <strong>What? (Context)</strong>
+            <p>The security vulnerabilities of their internal and customer-facing Retrieval-Augmented Generation (RAG) GenAI Bots leading to <span class="highlight-risk">data leakage</span>.</p>
         </div>
         <div class="question-box">
-            <strong>Where? (Location)</strong> : 15
-            <p>In the **interfaces (prompts)** of the GenAI bots and the **underlying RAG database** containing sensitive corporate documents.</p>
+            <strong>Where? (Location)</strong>
+            <p>In the interfaces (prompts) of the GenAI bots and the underlying RAG database containing sensitive corporate documents.</p>
         </div>
         <div class="question-box">
-            <strong>When? (Timing)</strong> : 14
-            <p>Continuously, but especially **after the implementation** of new AI bots or **updates** to the underlying LLM models.</p>
+            <strong>When? (Timing)</strong>
+            <p>Continuously, but especially after the implementation of new AI bots or updates to the underlying LLM models.</p>
         </div>
         <div class="question-box">
-            <strong>Why? (Reason)</strong> : 8
-            <p>Because the **specialized knowledge** for LLM Red Teaming is lacking in SMEs, and generic penetration tests do not cover these new vulnerabilities.</p>
+            <strong>Why? (Reason)</strong>
+            <p>Because the specialized knowledge for LLM Red Teaming is lacking in SMEs, and generic penetration tests do not cover these new vulnerabilities.</p>
         </div>
         <div class="question-box">
-            <strong>How? (Mechanism)</strong> : 17
-            <p>Through Prompt Injection, Model Hacking, or insecure configurations that force the bot to **disclose confidential internal data**.</p>
+            <strong>How? (Mechanism)</strong>
+            <p>Through Prompt Injection, Model Hacking, or insecure configurations that force the bot to disclose confidential internal data.</p>
         </div>
     </div>
 
     <div class="h5w-statement">
-        <h2>Problem Statement (Final Iteration) : 20</h2>
+        <h2>Problem Statement (Final Iteration)</h2>
         <p style="font-size: 1.3em; text-align: center; font-weight: bold; line-height: 1.5;">
             How might we
             <span style="color: #0056b3;">
