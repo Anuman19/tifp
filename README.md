@@ -54,4 +54,11 @@ This includes the business model patterns, revenue logic, capital requirements, 
 
 📄 **Document:** <a href="business_plan.html" target="_blank">Financial Plan & NPV Analysis</a>
 
+---
+
+### 5. Pitch Poster
+A one-page poster
+
+
+📄 **Document:** <a href="poster.md" target="_blank">Poster</a>
 
