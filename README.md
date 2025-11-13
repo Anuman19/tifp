@@ -23,7 +23,7 @@ Our approach uses **efficient, automated Red Teaming Audits** to provide targete
 This document defines the exact problem faced by the target market (**SMEs in high-compliance sectors**) using the *“5 W’s + How”* framework.  
 It establishes the **critical need for a specialized security solution**.
 
-📄 **Document:** [Problem Statement](problem_statement.html)
+📄 **Document:** <a href="problem_statement.html" target="_blank">Problem Statement</a>
 
 ---
 
@@ -31,7 +31,7 @@ It establishes the **critical need for a specialized security solution**.
 The foundational business proposal, detailing the **Need, Approach, Benefit, and Competition (NABC)** of the GenAI Red Teaming service.  
 This outlines the complete strategy and **value proposition**.
 
-📄 **Document:** [NABC Analysis](nabc.html)
+📄 **Document:** <a href="nabc.html" target="_blank">NABC Analysis</a>
 
 ---
 
@@ -43,6 +43,15 @@ This report showcases the **automated results from Promptfoo**, highlights **att
 - **MITRE ATLAS**
 - **NIST AI RMF**
 
-📄 **Document:** [Mock Audit Report](mock.html)
+📄 **Document:** <a href="mock.html" target="_blank">Mock Audit Report</a>
+
+---
+
+### 4. Financial Plan & Business Model
+An interactive webpage detailing the full business plan.
+This includes the business model patterns, revenue logic, capital requirements, and a detailed 5-year Net Present Value (NPV) calculation.
+
+
+📄 **Document:** <a href="business_plan.html" target="_blank">Financial Plan & NPV Analysis</a>
 
 
