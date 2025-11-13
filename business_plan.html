@@ -1,280 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GenAI Red Teaming for SMEs - Business Plan</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter font -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenAI Red-Teaming for SMEs – Business Plan</title>
+<style>
+  /* Global Resets and Base Styles */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 30px;
+    background-color: #f8f9fa; /* Light grey background */
+    color: #343a40; /* Dark grey text */
+  }
+
+  /* Container for centralizing content */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Typography */
+  h1 {
+    font-size: 2.8em;
+    color: #007bff; /* Primary Blue for main title */
+    border-bottom: 4px solid #007bff;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    color: #343a40; /* Dark header color */
+    margin-top: 40px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 5px solid #28a745; /* Green accent for section headers */
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.4em;
+    color: #5a6268; /* Sub-header color */
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #e9ecef;
+    padding-bottom: 5px;
+    font-weight: 500;
+  }
+
+  /* Section Styles */
+  .section {
+    margin-bottom: 35px;
+    padding: 20px 0;
+  }
+
+  /* List Styles */
+  ul {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+
+  ul li {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  /* Custom Bullet Point (Checkmark/Dot) */
+  ul li::before {
+    content: '•';
+    color: #28a745; /* Green checkmark/dot */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
+  /* Table Styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+  }
+
+  th {
+    background-color: #007bff; /* Blue header background */
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-color: #007bff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+
+  /* Key Metric Highlight */
+  .highlight {
+    font-weight: 700;
+    color: #dc3545; /* Red for emphasis on key numbers/targets */
+  }
+  
+  /* Financial Callout Style */
+  blockquote {
+    background-color: #e9f7ef; /* Light green/success background */
+    border-left: 8px solid #28a745; /* Strong green border */
+    padding: 20px 25px;
+    margin: 2em 0;
+    font-size: 1.1em;
+    color: #155724;
+    border-radius: 4px;
+  }
+  
+  blockquote p {
+      margin: 0;
+  }
+
+  /* Specific formatting for the NPV callout */
+  blockquote strong {
+      font-size: 1.2em;
+      color: #007bff;
+  }
+</style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
 
-    <div class="container mx-auto max-w-5xl p-4 md:p-8">
-        
-        <!-- Header -->
-        <header class="mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900">
-                GenAI Red Teaming for SMEs
-            </h1>
-            <p class="text-xl md:text-2xl text-blue-700 font-medium">
-                Preventing Data Leakage in RAG Bots (Switzerland Focus)
-            </p>
-        </header>
+<div class="container">
 
-        <!-- Main Content Grid -->
-        <main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<h1>GenAI Red-Teaming for SMEs – Business Plan</h1>
 
-            <!-- Left Column (Overview & Models) -->
-            <div class="md:col-span-2 space-y-6">
+<div class="section">
+<h2>1. Executive Summary</h2>
+<p>This business plan outlines the GenAI Red-Teaming service targeting Swiss and DACH SMEs deploying RAG bots and generative AI systems. The service addresses critical risks such as prompt injection, data leakage, context bleed, and compliance gaps.</p>
+<ul>
+<li>Target Customers: <span class="highlight">Swiss SMEs (1–250 employees)</span> without in-house AI security expertise</li>
+<li>Business Model: Solution Provider (audit) + Subscription (monitoring) + Add-On Services</li>
+<li>Financial Goal: Break-even is targeted within 3 years, scaling to <span class="highlight">25+ audits/year by year 5</span></li>
+</ul>
 
-                <!-- 1. Overview -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="p-5 md:p-6 border-b">
-                        <h2 class="text-2xl font-semibold">1. Overview & Idea</h2>
-                    </div>
-                    <div class="p-5 md:p-6">
-                        <p class="mb-4">
-                            A specialized cybersecurity service for Swiss SMEs deploying Retrieval-Augmented Generation (RAG) bots and other GenAI systems. The service conducts automated red-teaming audits to detect prompt injections, data leakage risks, and compliance gaps.
-                        </p>
-                        <ul class="list-disc list-outside pl-5 space-y-2">
-                            <li><span class="font-semibold">Founder:</span> Naveen Anpalagan</li>
-                            <li><span class="font-semibold">Market:</span> SMEs in Switzerland and DACH region</li>
-                            <li><span class="font-semibold">Focus Period:</span> 2025–2029</li>
-                            <li><span class="font-semibold">Goal:</span> Provide affordable, expert-level GenAI red-teaming and continuous monitoring for SMEs without in-house AI security expertise.</li>
-                        </ul>
-                    </div>
-                </div>
+<h3>Service Offerings & Pricing Overview</h3>
+<ul>
+  <li>One-time initial audit: <span class="highlight">CHF 5,000</span></li>
+  <li>Subscription-based monitoring: <span class="highlight">CHF 1,500/month (CHF 18,000/year)</span></li>
+  <li>Add-on services: custom workshops, tool deployment, retainer consulting</li>
+</ul>
+</div>
 
-                <!-- 2. Business Model Patterns -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="p-5 md:p-6 border-b">
-                        <h2 class="text-2xl font-semibold">2. Business Model Patterns</h2>
-                    </div>
-                    <div class="p-5 md:p-6">
-                        <p class="mb-4 text-sm text-gray-600">Based on the *Business Model Navigator* (University of St. Gallen), the following models fit best:</p>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left">
-                                <thead class="bg-gray-50">
-                                    <tr>
-                                        <th class="p-3 font-medium text-gray-600 uppercase text-sm">Pattern</th>
-                                        <th class="p-3 font-medium text-gray-600 uppercase text-sm">Description</th>
-                                        <th class="p-3 font-medium text-gray-600 uppercase text-sm">Application</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr>
-                                        <td class="p-3 font-medium">Solution Provider</td>
-                                        <td class="p-3">Offering complete tailored solutions</td>
-                                        <td class="p-3">Full audit service, scanning, and remediation plan</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-medium">Subscription</td>
-                                        <td class="p-3">Recurring revenue for periodic service</td>
-                                        <td class="p-3">Continuous RAG bot monitoring & quarterly retesting</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-medium">Add-On</td>
-                                        <td class="p-3">Base product + optional premium features</td>
-                                        <td class="p-3">Basic audit + premium modules (workshops, etc.)</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="mt-4 p-4 bg-gray-50 rounded-lg">
-                            <h4 class="font-semibold">Combined Model:</h4>
-                            <ul class="list-disc list-outside pl-5 text-gray-700">
-                                <li>Entry: One-time audit (Solution Provider)</li>
-                                <li>Recurring: Ongoing monitoring (Subscription)</li>
-                                <li>Upselling: Premium modules (Add-On)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+<div class="section">
+<h2>2. Market & Opportunity</h2>
+<h3>2.1 Market Size & Growth</h3>
+<ul>
+<li>Swiss AI market projected <span class="highlight">CHF 1.6 Billion by 2033</span> (21.2% CAGR)</li>
+<li>SME AI adoption growing from 22% to 34% (2024–2025)</li>
+<li>Swiss cybersecurity market estimated USD 1.5 billion (2024) for MSSP/MDR segment</li>
+</ul>
 
-            <!-- Right Column (Capital & Revenue) -->
-            <div class="md:col-span-1 space-y-6">
+<h3>2.2 Target Segment & Pain Points</h3>
+<p>SMEs represent >99% of Swiss companies. Their primary pain points include:</p>
+<ul>
+  <li>Risk of confidential/internal data exposure</li>
+  <li>Lack of AI governance frameworks</li>
+  <li>Compliance/regulatory pressure</li>
+  <li>Cost/complexity of hiring AI security experts</li>
+</ul>
 
-                <!-- 4. Capital Requirements -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="p-5 md:p-6 border-b">
-                        <h2 class="text-2xl font-semibold">4. Capital Requirements</h2>
-                    </div>
-                    <div class="p-5 md:p-6">
-                        <h3 class="text-lg font-semibold mb-2">Initial Setup Costs (2025)</h3>
-                        <p class="text-3xl font-bold text-blue-700 mb-4">~CHF 10,000</p>
-                        <ul class="list-disc list-outside pl-5 space-y-1 mb-4">
-                            <li>Laptop, software, licenses: <span class="font-medium">CHF 3,000</span></li>
-                            <li>Website & marketing: <span class="font-medium">CHF 2,000</span></li>
-                            <li>Tooling/test suite setup: <span class="font-medium">CHF 5,000</span></li>
-                        </ul>
-                        
-                        <h3 class="text-lg font-semibold mb-2">Annual Operating Costs (Year 1)</h3>
-                        <p class="text-3xl font-bold text-blue-700 mb-4">~CHF 60,000</p>
-                        <ul class="list-disc list-outside pl-5 space-y-1">
-                            <li>Founder compensation (partial): <span class="font-medium">CHF 50,000</span></li>
-                            <li>Marketing & sales: <span class="font-medium">CHF 5,000</span></li>
-                            <li>Legal/accounting/insurance: <span class="font-medium">CHF 3,000</span></li>
-                            <li>Cloud & testing tools: <span class="font-medium">CHF 2,000</span></li>
-                        </ul>
-                    </div>
-                </div>
+<h3>2.3 Competitive Landscape & Differentiation</h3>
+<p>Competitors include traditional cybersecurity firms, MSSPs, and AI vendors with security modules.</p>
+<p><strong>Unique Value Proposition:</strong></p>
+<ul>
+  <li>Hyper-specialization in RAG vulnerabilities</li>
+  <li>Compliance focus tailored to Swiss/DACH law</li>
+  <li>Cost-effective fixed-scope audits leveraging automation tools</li>
+</ul>
+</div>
 
-                <!-- 3. Revenue Logic -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="p-5 md:p-6 border-b">
-                        <h2 class="text-2xl font-semibold">3. Revenue Logic</h2>
-                    </div>
-                    <div class="p-5 md:p-6">
-                        <h3 class="text-lg font-semibold mb-2">Revenue Streams</h3>
-                        <ul class="list-disc list-outside pl-5 space-y-1 text-gray-700">
-                            <li><span class="font-semibold">One-time audit fee:</span> CHF 5,000</li>
-                            <li><span class="font-semibold">Subscription:</span> CHF 1,500/month (CHF 18,000/year)</li>
-                            <li><span class="font-semibold">Add-ons:</span> CHF 2,000 - 3,000</li>
-                        </ul>
-                    </div>
-                </div>
+<div class="section">
+<h2>3. Service Offering & Delivery Model</h2>
 
-            </div>
+<h3>3.1 Service Description</h3>
+<table>
+<thead>
+  <tr><th>Service</th><th>Pricing</th><th>Goal & Deliverables</th><th>Key Tools</th></tr>
+</thead>
+<tbody>
+  <tr>
+    <td>One-Time Audit</td>
+    <td><span class="highlight">CHF 5,000</span></td>
+    <td>Goal: Identify vulnerabilities. Deliverable: Audit Report, Prioritized Remediation Plan, Executive Summary.</td>
+    <td>Promptfoo, custom test suites, open-source scanners.</td>
+  </tr>
+  <tr>
+    <td>Subscription</td>
+    <td><span class="highlight">CHF 18,000/year</span></td>
+    <td>Goal: Continuous assurance. Deliverable: Quarterly retest summary, dynamic dashboard, incident alerts. Includes periodic retesting against new attack vectors.</td>
+    <td>Continuous monitoring tools & custom R&D.</td>
+  </tr>
+</tbody>
+</table>
 
-            <!-- Full Width Section (NPV) -->
-            <div class="md:col-span-3">
+<h3>3.2 Scaling Plan & Cost Growth</h3>
+<table>
+<thead>
+  <tr><th>Year</th><th>Audit Volume</th><th>Subscription Volume</th><th>Required Resource</th><th>Total OPEX (Excl. Initial)</th></tr>
+</thead>
+<tbody>
+  <tr>
+    <td>1 (2025)</td>
+    <td>5</td>
+    <td>0</td>
+    <td>Solo Founder</td>
+    <td><span class="highlight">70,000 CHF</span></td>
+  </tr>
+  <tr>
+    <td>3 (2027)</td>
+    <td>15</td>
+    <td>10</td>
+    <td>1.5 FTE (Part-Time/Junior Analyst)</td>
+    <td><span class="highlight">135,000 CHF</span></td>
+  </tr>
+  <tr>
+    <td>5 (2029)</td>
+    <td>25</td>
+    <td>20</td>
+    <td>2.5 FTE (Two full-time specialists)</td>
+    <td><span class="highlight">240,000 CHF</span></td>
+  </tr>
+</tbody>
+</table>
+</div>
 
-                <!-- 5. Net Present Value (NPV) -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="p-5 md:p-6 border-b">
-                        <h2 class="text-2xl font-semibold">5. Net Present Value (NPV) Calculation</h2>
-                    </div>
-                    <div class="p-5 md:p-6">
-                        <p class="mb-4">A <span class="font-semibold">10% discount rate</span> is assumed to calculate the Net Present Value (NPV) of future cash flows, balancing the opportunity cost and risk of the investment.</p>
-                        <p class="mb-4 text-sm text-gray-700">The table below details the revenue build-up from one-time audits (CHF 5,000), annual subscriptions (CHF 18,000), and add-on services.</p>
+<div class="section">
+<h2>4. Financials & NPV</h2>
+<p>NPV calculated with updated OPEX assumptions and discount rate of 10%.</p>
+<table>
+<thead>
+  <tr><th>Year</th><th>Revenue (CHF)</th><th>Net Cash Flow (CHF)</th><th>Discounted Cash Flow (10%)</th></tr>
+</thead>
+<tbody>
+  <tr><td>0</td><td>-</td><td>-10,000</td><td>-10,000</td></tr>
+  <tr><td>1</td><td>25,000</td><td>-45,000</td><td>-40,909</td></tr>
+  <tr><td>2</td><td>104,000</td><td><span class="highlight">19,000</span></td><td>15,702</td></tr>
+  <tr><td>3</td><td>259,000</td><td>124,000</td><td>93,169</td></tr>
+  <tr><td>4</td><td>380,000</td><td>200,000</td><td>136,603</td></tr>
+  <tr><td>5</td><td>500,000</td><td>260,000</td><td>161,438</td></tr>
+</tbody>
+</table>
+<blockquote>
+  <p>The projected **Net Present Value (NPV)** over five years is approximately <strong><span class="highlight">CHF 356,000</span></strong>.</p>
+</blockquote>
+</div>
 
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left mb-6 text-sm">
-                                <thead class="bg-gray-50">
-                                    <tr>
-                                        <!-- Revenue Breakdown Headers -->
-                                        <th class="p-3 font-medium text-gray-600 uppercase">Year</th>
-                                        <th class="p-3 font-medium text-gray-600 uppercase">Audits (#)</th>
-                                        <th class="p-3 font-medium text-gray-600 uppercase">Audit Rev. (CHF)</th>
-                                        <th class="p-3 font-medium text-gray-600 uppercase">Subs (#)</th>
-                                        <th class="p-3 font-medium text-gray-600 uppercase">Sub Rev. (CHF)</th>
-                                        <th class="p-3 font-medium text-gray-600 uppercase">Add-on Rev. (CHF)</th>
-                                        
-                                        <!-- Financial Summary Headers -->
-                                        <th class="p-3 font-semibold text-gray-800 uppercase border-l">Total Rev. (CHF)</th>
-                                        <th class="p-3 font-semibold text-gray-800 uppercase">Cost (CHF)</th>
-                                        <th class="p-3 font-semibold text-gray-800 uppercase">Net Cash Flow (CHF)</th>
-                                        <th class="p-3 font-semibold text-gray-800 uppercase">DCF (CHF)</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr class="font-medium bg-gray-50">
-                                        <td class="p-3">0 (Initial)</td>
-                                        <td class="p-3 text-gray-500">-</td>
-                                        <td class="p-3 text-gray-500">-</td>
-                                        <td class="p-3 text-gray-500">-</td>
-                                        <td class="p-3 text-gray-500">-</td>
-                                        <td class="p-3 text-gray-500">-</td>
-                                        <td class="p-3 text-gray-500 border-l">-</td>
-                                        <td class="p-3 text-red-600">10,000</td>
-                                        <td class="p-3 text-red-600">-10,000</td>
-                                        <td class="p-3 text-red-600">-10,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-medium">1 (2025)</td>
-                                        <td class="p-3 text-gray-600">5</td>
-                                        <td class="p-3 text-gray-600">25,000</td>
-                                        <td class="p-3 text-gray-600">0</td>
-                                        <td class="p-3 text-gray-600">0</td>
-                                        <td class="p-3 text-gray-600">0</td>
-                                        <td class="p-3 font-semibold border-l">25,000</td>
-                                        <td class="p-3 font-semibold text-red-600">60,000</td>
-                                        <td class="p-3 font-semibold text-red-600">-35,000</td>
-                                        <td class="p-3 font-semibold text-red-600">-31,818</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-medium">2 (2026)</td>
-                                        <td class="p-3 text-gray-600">10</td>
-                                        <td class="p-3 text-gray-600">50,000</td>
-                                        <td class="p-3 text-gray-600">3</td>
-                                        <td class="p-3 text-gray-600">54,000</td>
-                                        <td class="p-3 text-gray-600">0</td>
-                                        <td class="p-3 font-semibold border-l">104,000</td>
-                                        <td class="p-3 font-semibold text-red-600">60,000</td>
-                                        <td class="p-3 font-semibold text-green-700">44,000</td>
-                                        <td class="p-3 font-semibold text-green-700">36,364</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-medium">3 (22027)</td>
-                                        <td class="p-3 text-gray-600">15</td>
-                                        <td class="p-3 text-gray-600">75,000</td>
-                                        <td class="p-3 text-gray-600">10</td>
-                                        <td class="p-3 text-gray-600">180,000</td>
-                                        <td class="p-3 text-gray-600">4,000</td>
-                                        <td class="p-3 font-semibold border-l">259,000</td>
-                                        <td class="p-3 font-semibold text-red-600">65,000</td>
-                                        <td class="p-3 font-semibold text-green-700">194,000</td>
-                                        <td class="p-3 font-semibold text-green-700">145,745</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-medium">4 (2028)</td>
-                                        <td class="p-3 text-gray-600">20</td>
-                                        <td class="p-3 text-gray-600">100,000</td>
-                                        <td class="p-3 text-gray-600">15</td>
-                                        <td class="p-3 text-gray-600">270,000</td>
-                                        <td class="p-3 text-gray-600">10,000</td>
-                                        <td class="p-3 font-semibold border-l">380,000</td>
-                                        <td class="p-3 font-semibold text-red-600">70,000</td>
-                                        <td class="p-3 font-semibold text-green-700">310,000</td>
-                                        <td class="p-3 font-semibold text-green-700">211,714</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-medium">5 (2029)</td>
-                                        <td class="p-3 text-gray-600">25</td>
-                                        <td class="p-3 text-gray-600">125,000</td>
-                                        <td class="p-3 text-gray-600">20</td>
-                                        <td class="p-3 text-gray-600">360,000</td>
-                                        <td class="p-3 text-gray-600">15,000</td>
-                                        <td class="p-3 font-semibold border-l">500,000</td>
-                                        <td class="p-3 font-semibold text-red-600">80,000</td>
-                                        <td class="p-3 font-semibold text-green-700">420,000</td>
-                                        <td class="p-3 font-semibold text-green-700">260,783</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <!-- NPV Result -->
-                        <div class="mt-4 p-6 bg-green-50 rounded-lg text-center">
-                            <h3 class="text-lg font-medium text-green-800">Total Net Present Value (5-Years)</h3>
-                            <p class="text-4xl font-bold text-green-700 my-2">≈ CHF 613,000</p>
-                            <p class="text-lg font-semibold text-green-600">(Positive)</p>
-                            <p class="text-gray-700 mt-3">
-                                → This indicates a value-creating, sustainable business under moderate assumptions.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+<div class="section">
+<h2>5. Growth, Risk & KPIs</h2>
+<h3>5.1 Growth/Exit Strategy</h3>
+<ul>
+<li>Transition from consulting to <span class="highlight">SaaS</span> (automated test suite and dashboard)</li>
+<li>Expand Swiss focus to <span class="highlight">DACH region</span></li>
+<li>Potential acquisition by consulting firm or global security vendor</li>
+</ul>
 
-            </div>
-        </main>
+<h3>5.2 Key Performance Indicators (KPIs)</h3>
+<table>
+<thead>
+  <tr><th>KPI</th><th>Target/Metric</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+  <tr><td>CAC</td><td>&lt;10% of annual revenue</td><td>Marketing efficiency Year 1</td></tr>
+  <tr><td>Subscription Conversion Rate</td><td>&gt;50% of audits</td><td>Effectiveness of audit as entry model</td></tr>
+  <tr><td>LTV/CAC Ratio</td><td>&gt;3</td><td>Business sustainability</td></tr>
+  <tr><td>Audit Lead Time</td><td>&lt;2 weeks</td><td>Service delivery efficiency</td></tr>
+</tbody>
+</table>
 
-        <!-- Footer -->
-        <footer class="text-center text-sm text-gray-500 mt-8">
-            <p>Naveen Anpalagan | Prepared for CBM Recap Session – Investment Finance Practice</p>
-            <p>Berner Fachhochschule – WING</p>
-        </footer>
+<h3>5.3 Risks & Mitigation</h3>
+<table>
+<thead>
+  <tr><th>Risk</th><th>Mitigation</th></tr>
+</thead>
+<tbody>
+  <tr><td>Technological Change (New Attacks)</td><td>Dedicated R&D 20% of resource to update Promptfoo test suite monthly, track OWASP LLM Top 10</td></tr>
+  <tr><td>DIY Tool Risk</td><td>Market assurance and certification; DIY tools lack compliance mapping and liability coverage</td></tr>
+  <tr><td>Client Acquisition Risk (Year 1)</td><td>Allocate marketing budget to partnerships with Swiss AI platform/development houses</td></tr>
+</tbody>
+</table>
+</div>
 
-    </div>
+<div class="section">
+<h2>6. Next Steps</h2>
+<ul>
+<li>Conduct mini-market validation with 5–10 SMEs</li>
+<li>Develop detailed audit methodology and deliverable templates</li>
+<li>Build marketing materials and outreach plan</li>
+<li>Adjust financial model based on market feedback</li>
+<li>Prepare professional presentation deck</li>
+<li>Conduct legal/regulatory review</li>
+<li>Capture early client case studies</li>
+</ul>
+</div>
 
+</div>
 </body>
 </html>
