@@ -1,321 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GenAI Red-Teaming for SMEs – Business Plan</title>
-<style>
-  /* Global Resets and Base Styles */
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 30px;
-    background-color: #f8f9fa; /* Light grey background */
-    color: #343a40; /* Dark grey text */
-  }
-
-  /* Container for centralizing content */
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  }
-
-  /* Typography */
-  h1 {
-    font-size: 2.8em;
-    color: #007bff; /* Primary Blue for main title */
-    border-bottom: 4px solid #007bff;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: 700;
-  }
-
-  h2 {
-    font-size: 1.8em;
-    color: #343a40; /* Dark header color */
-    margin-top: 40px;
-    margin-bottom: 15px;
-    padding-left: 15px;
-    border-left: 5px solid #28a745; /* Green accent for section headers */
-    font-weight: 600;
-  }
-
-  h3 {
-    font-size: 1.4em;
-    color: #5a6268; /* Sub-header color */
-    margin-top: 25px;
-    margin-bottom: 10px;
-    border-bottom: 1px dashed #e9ecef;
-    padding-bottom: 5px;
-    font-weight: 500;
-  }
-
-  /* Section Styles */
-  .section {
-    margin-bottom: 35px;
-    padding: 20px 0;
-  }
-
-  /* List Styles */
-  ul {
-    list-style-type: none;
-    padding-left: 20px;
-  }
-
-  ul li {
-    margin-bottom: 10px;
-    padding-left: 10px;
-    position: relative;
-  }
-
-  /* Custom Bullet Point (Checkmark/Dot) */
-  ul li::before {
-    content: '•';
-    color: #28a745; /* Green checkmark/dot */
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-  }
-
-  /* Table Styles */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2em 0;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  }
-
-  th, td {
-    padding: 15px;
-    text-align: left;
-    border: 1px solid #dee2e6;
-  }
-
-  th {
-    background-color: #007bff; /* Blue header background */
-    color: #ffffff;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-color: #007bff;
-  }
-
-  tr:nth-child(even) {
-    background-color: #f8f9fa;
-  }
-
-  /* Key Metric Highlight */
-  .highlight {
-    font-weight: 700;
-    color: #dc3545; /* Red for emphasis on key numbers/targets */
-  }
-  
-  /* Financial Callout Style */
-  blockquote {
-    background-color: #e9f7ef; /* Light green/success background */
-    border-left: 8px solid #28a745; /* Strong green border */
-    padding: 20px 25px;
-    margin: 2em 0;
-    font-size: 1.1em;
-    color: #155724;
-    border-radius: 4px;
-  }
-  
-  blockquote p {
-      margin: 0;
-  }
-
-  /* Specific formatting for the NPV callout */
-  blockquote strong {
-      font-size: 1.2em;
-      color: #007bff;
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>RAG Cyber Consulting: Full Financial Plan</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 40px;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 1200px;
+            margin: 40px auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #007bff;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+            margin-top: 30px;
+            padding-left: 10px;
+            border-left: 5px solid #007bff;
+        }
+        h3 {
+            color: #555;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: right;
+        }
+        th {
+            background-color: #e9f0ff;
+            color: #007bff;
+            font-weight: bold;
+            text-align: center;
+        }
+        .summary-table th, .summary-table td {
+            text-align: left;
+        }
+        .highlight {
+            background-color: #d1ecf1; /* Light blue for key figures */
+            font-weight: bold;
+        }
+        .negative {
+            color: #dc3545; /* Red for negative values */
+        }
+        .positive {
+            color: #28a745; /* Green for positive values */
+        }
+        .main-npv {
+            font-size: 1.8em;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            background-color: #e6ffe6;
+            margin-bottom: 30px;
+        }
+        .main-npv strong {
+            font-size: 1.2em; /* Ensure the final number is large and bold */
+        }
+        .key-metric-box {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .key-metric {
+            padding: 15px 25px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-basis: 30%;
+        }
+        .key-metric strong {
+            display: block;
+            font-size: 1.5em;
+            color: #007bff;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
+    <h1>RAG Cyber Consulting: Full Financial Plan</h1>
+    <p style="text-align: center; font-style: italic; color: #555;">Scenario: 5 Tier 1 & 1 Tier 2 Customer in Year 1 (Financially Viable)</p>
 
-<h1>GenAI Red-Teaming for SMEs – Business Plan</h1>
+    <div class="main-npv">
+        Total Net Present Value (NPV) (t=0): <span class="positive"><strong>CHF 124,166.52</strong></span>
+    </div>
 
-<div class="section">
-<h2>1. Executive Summary</h2>
-<p>This business plan outlines the GenAI Red-Teaming service targeting Swiss and DACH SMEs deploying RAG bots and generative AI systems. The service addresses critical risks such as prompt injection, data leakage, context bleed, and compliance gaps.</p>
-<ul>
-<li>Target Customers: <span class="highlight">Swiss SMEs (1–250 employees)</span> without in-house AI security expertise</li>
-<li>Business Model: Solution Provider (audit) + Subscription (monitoring) + Add-On Services</li>
-<li>Financial Goal: Break-even is targeted within 3 years, scaling to <span class="highlight">25+ audits/year by year 5</span></li>
-</ul>
+    <h2>1. Idea Description and Revenue Logic 💡</h2>
 
-<h3>Service Offerings & Pricing Overview</h3>
-<ul>
-  <li>One-time initial audit: <span class="highlight">CHF 5,000</span></li>
-  <li>Subscription-based monitoring: <span class="highlight">CHF 1,500/month (CHF 18,000/year)</span></li>
-  <li>Add-on services: custom workshops, tool deployment, retainer consulting</li>
-</ul>
-</div>
+    <h3>Business Model(s) and Strategic Rationale</h3>
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Tier/Service</th>
+                <th>Price (Y1, CHF)</th>
+                <th>Revenue Logic</th>
+                <th>Strategic Rationale</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Tier 1 (Acquisition)</strong></td>
+                <td>6,000 (One-Off)</td>
+                <td>RAG QuickCheck Audit. Transactional service to establish trust.</td>
+                <td>Drives the customer funnel and future Tier 2 upsell.</td>
+            </tr>
+            <tr>
+                <td><strong>Tier 2 (Core)</strong></td>
+                <td>12,000 (Annual ARR)</td>
+                <td>RAG Shield Retainer. Annual subscription for continuous monitoring.</td>
+                <td>High-value Annual Recurring Revenue (ARR) for financial stability.</td>
+            </tr>
+            <tr>
+                <td><strong>Add-on</strong></td>
+                <td>~10% of Audit Revenue</td>
+                <td>Specialized Consulting. High-margin project income for remediation.</td>
+                <td>Leveraging founder expertise for supplementary income.</td>
+            </tr>
+        </tbody>
+    </table>
 
-<div class="section">
-<h2>2. Market & Opportunity</h2>
-<h3>2.1 Market Size & Growth</h3>
-<ul>
-<li>Swiss AI market projected <span class="highlight">CHF 1.6 Billion by 2033</span> (21.2% CAGR)</li>
-<li>SME AI adoption growing from 22% to 34% (2024–2025)</li>
-<li>Swiss cybersecurity market estimated USD 1.5 billion (2024) for MSSP/MDR segment</li>
-</ul>
+    <h3>Detailed Description and Competitive Edge</h3>
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>**Core Idea**</td>
+                <td>RAG GenAI Cyber Consulting for Swiss KMUs, specializing in **Retrieval-Augmented Generation (RAG) system security**.</td>
+            </tr>
+            <tr>
+                <td>**Competitive Edge**</td>
+                <td>**High Automation:** Utilizing custom RAG/Promptfoo tools allows for specialized service at a price point that undercuts traditional Swiss consulting firms.</td>
+            </tr>
+            <tr>
+                <td>**Founder Role**</td>
+                <td>**Solo Founder/Developer.** Dual expertise minimizes high PEX (CHF 50,000) while maximizing technical execution.</td>
+            </tr>
+        </tbody>
+    </table>
 
-<h3>2.2 Target Segment & Pain Points</h3>
-<p>SMEs represent >99% of Swiss companies. Their primary pain points include:</p>
-<ul>
-  <li>Risk of confidential/internal data exposure</li>
-  <li>Lack of AI governance frameworks</li>
-  <li>Compliance/regulatory pressure</li>
-  <li>Cost/complexity of hiring AI security experts</li>
-</ul>
+    <h2>2. Capital Requirements and Assumptions 🏦</h2>
 
-<h3>2.3 Competitive Landscape & Differentiation</h3>
-<p>Competitors include traditional cybersecurity firms, MSSPs, and AI vendors with security modules.</p>
-<p><strong>Unique Value Proposition:</strong></p>
-<ul>
-  <li>Hyper-specialization in RAG vulnerabilities</li>
-  <li>Compliance focus tailored to Swiss/DACH law</li>
-  <li>Cost-effective fixed-scope audits leveraging automation tools</li>
-</ul>
-</div>
+    <h3>Capital Requirements: Initial Investment (t=0)</h3>
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Investment Category</th>
+                <th style="text-align: right;">Estimated Cost (CHF)</th>
+                <th>Rationale (Lean & Realistic)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1. Legal & Founding Fees</td>
+                <td>20,000.00</td>
+                <td>Mandatory Swiss legal incorporation and initial compliance.</td>
+            </tr>
+            <tr>
+                <td>2. Initial Software & Branding</td>
+                <td>15,000.00</td>
+                <td>Professional website, CRM, and necessary business subscriptions.</td>
+            </tr>
+            <tr class="highlight">
+                <td>3. Cash Reserve / Buffer</td>
+                <td>30,000.00</td>
+                <td>Buffer to cover the first few months of high Fixed OPEX.</td>
+            </tr>
+            <tr>
+                <td>**TOTAL INITIAL INVESTMENT**</td>
+                <td>**(65,000.00)**</td>
+                <td>Initial cash outflow required to launch.</td>
+            </tr>
+        </tbody>
+    </table>
 
-<div class="section">
-<h2>3. Service Offering & Delivery Model</h2>
+    <h3>Key Financial Assumptions</h3>
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Value</th>
+                <th>Rationale</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Fixed Operating Expenses (OPEX) (Y1)</td>
+                <td>CHF 95,000</td>
+                <td>CHF 50k Founder PEX + CHF 45k Admin/Legal/SaaS.</td>
+            </tr>
+            <tr>
+                <td>Discount Rate ($\mathbf{R}$)</td>
+                <td>15.00%</td>
+                <td>Standard high-risk rate for a new Swiss startup.</td>
+            </tr>
+            <tr>
+                <td>Price Escalation</td>
+                <td>3.00% Annually</td>
+                <td>Included to match full plan structure and account for inflation.</td>
+            </tr>
+            <tr>
+                <td>Terminal Growth Rate ($\mathbf{g}$)</td>
+                <td>5.00%</td>
+                <td>Assumed stable growth rate after the 5-year forecast period.</td>
+            </tr>
+        </tbody>
+    </table>
 
-<h3>3.1 Service Description</h3>
-<table>
-<thead>
-  <tr><th>Service</th><th>Pricing</th><th>Goal & Deliverables</th><th>Key Tools</th></tr>
-</thead>
-<tbody>
-  <tr>
-    <td>One-Time Audit</td>
-    <td><span class="highlight">CHF 5,000</span></td>
-    <td>Goal: Identify vulnerabilities. Deliverable: Audit Report, Prioritized Remediation Plan, Executive Summary.</td>
-    <td>Promptfoo, custom test suites, open-source scanners.</td>
-  </tr>
-  <tr>
-    <td>Subscription</td>
-    <td><span class="highlight">CHF 18,000/year</span></td>
-    <td>Goal: Continuous assurance. Deliverable: Quarterly retest summary, dynamic dashboard, incident alerts. Includes periodic retesting against new attack vectors.</td>
-    <td>Continuous monitoring tools & custom R&D.</td>
-  </tr>
-</tbody>
-</table>
+    <h2>3. Net Present Value (NPV) and Valuation 📈</h2>
 
-<h3>3.2 Scaling Plan & Cost Growth</h3>
-<table>
-<thead>
-  <tr><th>Year</th><th>Audit Volume</th><th>Subscription Volume</th><th>Required Resource</th><th>Total OPEX (Excl. Initial)</th></tr>
-</thead>
-<tbody>
-  <tr>
-    <td>1 (2025)</td>
-    <td>5</td>
-    <td>0</td>
-    <td>Solo Founder</td>
-    <td><span class="highlight">70,000 CHF</span></td>
-  </tr>
-  <tr>
-    <td>3 (2027)</td>
-    <td>15</td>
-    <td>10</td>
-    <td>1.5 FTE (Part-Time/Junior Analyst)</td>
-    <td><span class="highlight">135,000 CHF</span></td>
-  </tr>
-  <tr>
-    <td>5 (2029)</td>
-    <td>25</td>
-    <td>20</td>
-    <td>2.5 FTE (Two full-time specialists)</td>
-    <td><span class="highlight">240,000 CHF</span></td>
-  </tr>
-</tbody>
-</table>
-</div>
+    <div class="key-metric-box">
+        <div class="key-metric">
+            NPV Result (Total)
+            <strong class="positive">CHF 124,166.52</strong>
+        </div>
+        <div class="key-metric">
+            Payback Time
+            <strong class="positive">~2.7 Years</strong>
+        </div>
+        <div class="key-metric">
+            Terminal Value (DTV<sub>0</sub>)
+            <strong class="positive">CHF 1,688,719.53</strong>
+        </div>
+    </div>
 
-<div class="section">
-<h2>4. Financials & NPV</h2>
-<p>NPV calculated with updated OPEX assumptions and discount rate of 10%.</p>
-<table>
-<thead>
-  <tr><th>Year</th><th>Revenue (CHF)</th><th>Net Cash Flow (CHF)</th><th>Discounted Cash Flow (10%)</th></tr>
-</thead>
-<tbody>
-  <tr><td>0</td><td>-</td><td>-10,000</td><td>-10,000</td></tr>
-  <tr><td>1</td><td>25,000</td><td>-45,000</td><td>-40,909</td></tr>
-  <tr><td>2</td><td>104,000</td><td><span class="highlight">19,000</span></td><td>15,702</td></tr>
-  <tr><td>3</td><td>259,000</td><td>124,000</td><td>93,169</td></tr>
-  <tr><td>4</td><td>380,000</td><td>200,000</td><td>136,603</td></tr>
-  <tr><td>5</td><td>500,000</td><td>260,000</td><td>161,438</td></tr>
-</tbody>
-</table>
-<blockquote>
-  <p>The projected **Net Present Value (NPV)** over five years is approximately <strong><span class="highlight">CHF 356,000</span></strong>.</p>
-</blockquote>
-</div>
+    <h3>Terminal Value (TV) Calculation</h3>
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th style="text-align: right;">Value (CHF)</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Last NCF (Year 5)</td>
+                <td style="text-align: right;">323,261.21</td>
+                <td>Net Cash Flow at the end of the explicit forecast period.</td>
+            </tr>
+            <tr>
+                <td>Terminal Value ($\mathbf{TV_5}$)</td>
+                <td style="text-align: right;">3,394,242.76</td>
+                <td>The estimated value of the company at the start of Year 6.</td>
+            </tr>
+            <tr class="highlight">
+                <td>Discounted Terminal Value ($\mathbf{DTV_0}$)</td>
+                <td style="text-align: right;">1,688,719.53</td>
+                <td>Present value of the Terminal Value.</td>
+            </tr>
+        </tbody>
+    </table>
 
-<div class="section">
-<h2>5. Growth, Risk & KPIs</h2>
-<h3>5.1 Growth/Exit Strategy</h3>
-<ul>
-<li>Transition from consulting to <span class="highlight">SaaS</span> (automated test suite and dashboard)</li>
-<li>Expand Swiss focus to <span class="highlight">DACH region</span></li>
-<li>Potential acquisition by consulting firm or global security vendor</li>
-</ul>
+    <h2>4. Full Discounted Cash Flow (DCF) Summary</h2>
 
-<h3>5.2 Key Performance Indicators (KPIs)</h3>
-<table>
-<thead>
-  <tr><th>KPI</th><th>Target/Metric</th><th>Purpose</th></tr>
-</thead>
-<tbody>
-  <tr><td>CAC</td><td>&lt;10% of annual revenue</td><td>Marketing efficiency Year 1</td></tr>
-  <tr><td>Subscription Conversion Rate</td><td>&gt;50% of audits</td><td>Effectiveness of audit as entry model</td></tr>
-  <tr><td>LTV/CAC Ratio</td><td>&gt;3</td><td>Business sustainability</td></tr>
-  <tr><td>Audit Lead Time</td><td>&lt;2 weeks</td><td>Service delivery efficiency</td></tr>
-</tbody>
-</table>
+    <table style="font-size: 0.9em;">
+        <thead>
+            <tr>
+                <th>Year ($\mathbf{t}$)</th>
+                <th>New T1 Clients</th>
+                <th>Cumulative T2 Subs</th>
+                <th>T1 Price (CHF)</th>
+                <th>T2 Price (CHF)</th>
+                <th>Total Revenue (CHF)</th>
+                <th>NCF (CHF)</th>
+                <th>DCF (CHF)</th>
+                <th>Cumulative DCF (CHF)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0</td>
+                <td>0.00</td>
+                <td>1.00</td>
+                <td>6,000.00</td>
+                <td>12,000.00</td>
+                <td>0.00</td>
+                <td class="negative">(65,000.00)</td>
+                <td class="negative">(65,000.00)</td>
+                <td class="negative">(65,000.00)</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>5.00</td>
+                <td>1.00</td>
+                <td>6,000.00</td>
+                <td>12,000.00</td>
+                <td>59,400.00</td>
+                <td class="negative">(40,560.00)</td>
+                <td class="negative">(35,269.57)</td>
+                <td class="negative">(100,269.57)</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>5.50</td>
+                <td>2.50</td>
+                <td>6,180.00</td>
+                <td>12,360.00</td>
+                <td>114,357.51</td>
+                <td class="positive">6,071.74</td>
+                <td class="positive">4,586.82</td>
+                <td class="negative">(95,682.75)</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>6.33</td>
+                <td>4.15</td>
+                <td>6,365.40</td>
+                <td>12,730.80</td>
+                <td>185,502.95</td>
+                <td class="positive">80,884.28</td>
+                <td class="positive">53,091.95</td>
+                <td class="negative">(42,590.80)</td>
+            </tr>
+            <tr class="highlight">
+                <td>4</td>
+                <td>7.08</td>
+                <td>5.86</td>
+                <td>6,556.36</td>
+                <td>13,112.72</td>
+                <td>277,100.95</td>
+                <td class="positive">172,374.80</td>
+                <td class="positive">98,639.23</td>
+                <td class="positive">56,048.43</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>7.79</td>
+                <td>7.99</td>
+                <td>6,752.05</td>
+                <td>13,506.10</td>
+                <td>388,485.65</td>
+                <td class="positive">323,261.21</td>
+                <td class="positive">160,256.09</td>
+                <td class="positive">216,304.52</td>
+            </tr>
+        </tbody>
+    </table>
 
-<h3>5.3 Risks & Mitigation</h3>
-<table>
-<thead>
-  <tr><th>Risk</th><th>Mitigation</th></tr>
-</thead>
-<tbody>
-  <tr><td>Technological Change (New Attacks)</td><td>Dedicated R&D 20% of resource to update Promptfoo test suite monthly, track OWASP LLM Top 10</td></tr>
-  <tr><td>DIY Tool Risk</td><td>Market assurance and certification; DIY tools lack compliance mapping and liability coverage</td></tr>
-  <tr><td>Client Acquisition Risk (Year 1)</td><td>Allocate marketing budget to partnerships with Swiss AI platform/development houses</td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="section">
-<h2>6. Next Steps</h2>
-<ul>
-<li>Conduct mini-market validation with 5–10 SMEs</li>
-<li>Develop detailed audit methodology and deliverable templates</li>
-<li>Build marketing materials and outreach plan</li>
-<li>Adjust financial model based on market feedback</li>
-<li>Prepare professional presentation deck</li>
-<li>Conduct legal/regulatory review</li>
-<li>Capture early client case studies</li>
-</ul>
-</div>
-
-</div>
 </body>
 </html>
