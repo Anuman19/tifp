@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenAI RAG Bot Audit Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .critical { background-color: #fef2f2; border-left: 4px solid #ef4444; }
+        .high { background-color: #fffbeb; border-left: 4px solid #f59e0b; }
+        .medium { background-color: #eff6ff; border-left: 4px solid #3b82f6; }
+        .low { background-color: #f0fdf4; border-left: 4px solid #10b981; }
+        .score-bar { transition: width 0.5s ease-out; }
+    </style>
+</head>
+<body class="bg-gray-50 p-4 sm:p-8">
+
+    <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden">
+        
+        <!-- Header & Summary -->
+        <header class="p-6 sm:p-10 bg-gray-900 text-white">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
+                    RAG Bot Red Team Audit Report
+                </h1>
+                <div class="mt-4 sm:mt-0 text-right">
+                    <p class="text-sm text-gray-400">Client: SME Financial Services</p>
+                    <p class="text-xl font-semibold">Date: November 13, 2025</p>
+                </div>
+            </div>
+            <p class="text-lg text-gray-300 mt-2">Target System: Internal Knowledge Base Bot (LLM: Gemini 2.0 Flash Lite)</p>
+        </header>
+
+        <!-- Overall Scorecard -->
+        <section class="p-6 sm:p-10">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 pb-2 mb-6">Overall Security Posture</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                
+                <div class="p-6 rounded-lg bg-red-500 text-white shadow-lg">
+                    <p class="text-5xl font-extrabold">3</p>
+                    <p class="mt-1 text-sm sm:text-base">Critical Issues</p>
+                </div>
+                
+                <div class="p-6 rounded-lg bg-orange-500 text-white shadow-lg">
+                    <p class="text-5xl font-extrabold">4</p>
+                    <p class="mt-1 text-sm sm:text-base">High Issues</p>
+                </div>
+                
+                <div class="p-6 rounded-lg bg-blue-500 text-white shadow-lg">
+                    <p class="text-5xl font-extrabold">9</p>
+                    <p class="mt-1 text-sm sm:text-base">Medium Issues</p>
+                </div>
+                
+                <div class="p-6 rounded-lg bg-green-500 text-white shadow-lg">
+                    <p class="text-5xl font-extrabold">11</p>
+                    <p class="mt-1 text-sm sm:text-base">Low Issues</p>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="text-xl font-semibold mb-3">Total Attack Success Rate (Promptfoo)</h3>
+                <div class="bg-gray-200 rounded-full h-8 overflow-hidden shadow-inner">
+                    <div class="score-bar bg-red-600 h-8 flex items-center justify-center text-white font-bold" style="width: 58.4%;">
+                        58.4% Failed (157 / 269 Attacks Succeeded)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Vulnerability Areas -->
+        <section class="p-6 sm:p-10 bg-gray-100">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 pb-2 mb-6">Key Vulnerability Areas</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- Security & Access Control -->
+                <div class="p-6 bg-white rounded-lg shadow-md border-t-4 border-blue-600">
+                    <h3 class="text-xl font-bold text-blue-800 mb-4">1. Security & Access Control</h3>
+                    <p class="text-sm text-gray-600 mb-4">Data protection, access control, and system security risks.</p>
+                    <div class="text-3xl font-extrabold text-blue-600 mb-2">66% Passed</div>
+                    <ul class="space-y-3">
+                        <li class="p-2 critical rounded-md"><strong>Privacy Violation:</strong> 49% Success Rate</li>
+                        <li class="p-2 high rounded-md"><strong>System Prompt Disclosure:</strong> 20% Success Rate</li>
+                        <li class="p-2 medium rounded-md">IP Theft: 24% Success Rate</li>
+                    </ul>
+                </div>
+                
+                <!-- Compliance & Legal -->
+                <div class="p-6 bg-white rounded-lg shadow-md border-t-4 border-red-600">
+                    <h3 class="text-xl font-bold text-red-800 mb-4">2. Compliance & Legal</h3>
+                    <p class="text-sm text-gray-600 mb-4">Regulatory compliance and policy violation risks (High for Finance/Legal SMEs).</p>
+                    <div class="text-3xl font-extrabold text-red-600 mb-2">49% Passed</div>
+                    <ul class="space-y-3">
+                        <li class="p-2 critical rounded-md"><strong>Unauthorized Advice:</strong> 80% Success Rate</li>
+                        <li class="p-2 high rounded-md"><strong>Illegal Activity:</strong> 69% Success Rate</li>
+                        <li class="p-2 medium rounded-md">WMD Content: 39% Success Rate</li>
+                    </ul>
+                </div>
+                
+                <!-- Trust & Safety -->
+                <div class="p-6 bg-white rounded-lg shadow-md border-t-4 border-yellow-600">
+                    <h3 class="text-xl font-bold text-yellow-800 mb-4">3. Trust & Safety</h3>
+                    <p class="text-sm text-gray-600 mb-4">Harmful, inappropriate, or offensive content generation risks.</p>
+                    <div class="text-3xl font-extrabold text-yellow-600 mb-2">50% Passed</div>
+                    <ul class="space-y-3">
+                        <li class="p-2 critical rounded-md"><strong>Hate Speech:</strong> 38% Success Rate</li>
+                        <li class="p-2 high rounded-md"><strong>Harassment:</strong> 60% Success Rate</li>
+                        <li class="p-2 medium rounded-md">Gender Bias: 63% Success Rate</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance Frameworks (Focus on Business Value) -->
+        <section class="p-6 sm:p-10">
+            <h2 class="text-2xl font-bold text-gray-800 border-b-2 pb-2 mb-6">Framework Compliance Analysis (Core Value Proposition)</h2>
+            <p class="text-gray-600 mb-6">We map all identified vulnerabilities against leading industry standards to provide a clear, actionable path to compliance.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- OWASP LLM Top 10 -->
+                <div class="p-6 rounded-lg shadow-xl border-2 border-red-200">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-red-700">OWASP LLM Top 10 (2023)</h3>
+                        <span class="text-3xl font-extrabold text-red-600">9/10 Failed</span>
+                    </div>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li><strong>L1: Prompt Injection</strong> (26/26 Plugins Failed)</li>
+                        <li><strong>L2: Sensitive Info Disclosure</strong> (Failed: Privacy/System Prompt)</li>
+                        <li>L7: System Prompt Leakage (Failed: 2/2 Plugins)</li>
+                        <li>L9: Misinformation (Failed: Unauthorized Advice)</li>
+                    </ul>
+                    <p class="mt-4 text-xs text-red-500 font-semibold">Action Required: Immediate fix for Prompt Injection vectors.</p>
+                </div>
+
+                <!-- MITRE ATLAS -->
+                <div class="p-6 rounded-lg shadow-xl border-2 border-blue-200">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-blue-700">MITRE ATLAS</h3>
+                        <span class="text-3xl font-extrabold text-blue-600">26/27 Failed</span>
+                    </div>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li><strong>T0001: Data Exfiltration</strong> (Failed: Privacy Violation 49%)</li>
+                        <li>T0002: Manipulate Content (Failed: Unauthorized Advice 80%)</li>
+                        <li>T0003: Evasion (Failed: Prompt Injection)</li>
+                        <li>T0018: System Prompt Disclosure (Failed: 20%)</li>
+                    </ul>
+                    <p class="mt-4 text-xs text-blue-500 font-semibold">Action Required: Implement hardened RAG access control layer.</p>
+                </div>
+
+                <!-- NIST AI RMF -->
+                <div class="p-6 rounded-lg shadow-xl border-2 border-green-200">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-green-700">NIST AI RMF (Risk Mgmt)</h3>
+                        <span class="text-3xl font-extrabold text-green-600">9/27 Failed</span>
+                    </div>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li><strong>AI.03.R4: Data Integrity</strong> (Failed: Disinformation Campaigns 35%)</li>
+                        <li>AI.03.R5: Security (Failed: Cybercrime 58%)</li>
+                        <li>AI.05.R2: Harm (Failed: Hate Speech 38%)</li>
+                        <li>AI.06.R3: Transparency (Failed: System Prompt Disclosure)</li>
+                    </ul>
+                    <p class="mt-4 text-xs text-green-500 font-semibold">Action Required: Review model training data and safety filters.</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <footer class="p-6 sm:p-10 bg-gray-900 text-white mt-8">
+            <h2 class="text-2xl font-bold mb-4">Remediation & Next Steps</h2>
+            <p class="text-gray-300">The high success rate of Prompt Injection (58.4%) against your RAG bot necessitates immediate action. Our next phase of the service is a Prioritized Remediation Consultation, focused on the 7 Critical and High severity issues identified here.</p>
+            <button class="mt-5 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg shadow-lg">
+                Schedule Remediation Kick-Off
+            </button>
+        </footer>
+
+    </div>
+
+</body>
+</html>

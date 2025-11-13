@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NABC - GenAI Red Teaming for SMEs</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 40px;
+            background-color: #eef1f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #1a4e9b;
+            font-size: 2.2em;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .nabc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .nabc-box {
+            background-color: #f8f8ff;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 5px solid;
+        }
+        .nabc-box h2 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .nabc-box ul {
+            padding-left: 20px;
+            margin: 0;
+            line-height: 1.7;
+            color: #444;
+        }
+        .nabc-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Color Scheme for NABC Sections */
+        .need { border-color: #e74c3c; } /* Red: Problem */
+        .need h2 { color: #e74c3c; }
+        .approach { border-color: #3498db; } /* Blue: Path */
+        .approach h2 { color: #3498db; }
+        .benefit { border-color: #2ecc71; } /* Green: Value */
+        .benefit h2 { color: #2ecc71; }
+        .competition { border-color: #f39c12; } /* Orange: Uniqueness */
+        .competition h2 { color: #f39c12; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>NABC Business Idea Structuring</h1>
+        <p>Project: <strong>GenAI Red Teaming Audit Service for SMEs</strong> | Version 1.0</p>
+    </div>
+
+    <div class="nabc-grid">
+
+        <div class="nabc-box need">
+            <h2>🚨 Need</h2>
+            <p><strong>The unresolved security challenge for SMEs:</strong></p>
+            <ul>
+                <li>SMEs rapidly deploy GenAI bots (RAG systems) but lack the <strong>specialized expertise</strong> to test for LLM-specific threats (Prompt Injection, unauthorized data access).</li>
+                <li>The risk of <strong>compliance breaches</strong> and <strong>reputational damage</strong> from data leakage via insecure bots is high, especially in compliance-heavy sectors.</li>
+                <li>Traditional penetration testing services are <strong>too expensive</strong> and <strong>not targeted</strong> enough for the new GenAI attack surface.</li>
+            </ul>
+        </div>
+
+        <div class="nabc-box approach">
+            <h2>🛠️ Approach</h2>
+            <p><strong>Our service model and methodology:</strong></p>
+            <ul>
+                <li>Offer a <strong>standardized, fixed-scope Red Team Audit</strong> (e.g., 3-5 days) focused exclusively on RAG-powered bots and LLM interfaces.</li>
+                <li>Leverage <strong>Open-Source tools (like Promptfoo)</strong> and proprietary test suites to <strong>automate</strong> attacks, increasing efficiency and lowering the cost baseline.</li>
+                <li><strong>Dual Revenue Model:</strong> Combination of high-value <strong>Consultant Service</strong> (one-time audits) and a <strong>Subscription</strong> model (annual retainer for re-audits).</li>
+            </ul>
+        </div>
+
+        <div class="nabc-box benefit">
+            <h2>💰 Benefit</h2>
+            <p><strong>The core value delivered to the customer:</strong></p>
+            <ul>
+                <li><strong>Rapid Risk Mitigation:</strong> Clients receive a clear, <strong>prioritized remediation plan</strong> to harden their GenAI bots immediately after the audit.</li>
+                <li><strong>Cost-Effectiveness:</strong> Automation allows us to deliver the audit at a <strong>fraction of the cost</strong> of large, manual security firms, fitting the SME budget.</li>
+                <li><strong>Targeted Assurance:</strong> Clients gain confidence that their GenAI investment is secure against the <strong>most current and critical LLM vulnerabilities</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="nabc-box competition">
+            <h2>🚀 Competition & USP</h2>
+            <p><strong>Alternatives, competitors, and our Unique Selling Proposition:</strong></p>
+            <ul>
+                <li><strong>Alternatives:</strong> Large, costly security consulting firms (too expensive); internal IT teams (lack LLM expertise).</li>
+                <li><strong>Competitors:</strong> Generic IT security providers offering LLM security as an afterthought.</li>
+                <li><strong>USP (Unique Selling Proposition):</strong> <strong>Focus + Automation.</strong> Specialized expertise in SME-specific RAG systems combined with the cost-efficient, automated <strong>Promptfoo testing methodology</strong>.</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

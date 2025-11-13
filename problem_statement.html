@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Statement - GenAI Red Teaming</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 40px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #cc3333;
+            border-bottom: 3px solid #cc3333;
+            padding-bottom: 10px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        .info-box {
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .prep-questions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .question-box {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .question-box strong {
+            display: block;
+            color: #1a4e9b;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .h5w-statement {
+            margin-top: 40px;
+            padding: 25px;
+            background-color: #fff0f0;
+            border: 2px dashed #cc3333;
+            border-radius: 10px;
+        }
+        .h5w-statement h2 {
+            color: #cc3333;
+            text-align: center;
+            font-size: 1.6em;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>PROBLEM STATEMENT</h1>
+        <p>Project: GenAI Red Teaming for SMEs | Goal: Summarize the central problem formulation : 4</p>
+    </div>
+
+    <div class="info-box">
+        <strong>Brief Instructions:</strong> The Problem Statement summarizes the central problem formulation in one sentence to develop a common understanding of the problem: 4.
+    </div>
+
+    <h2>Preparatory Questions (The 5 W's + How) : 5</h2>
+
+    <div class="prep-questions">
+        <div class="question-box">
+            <strong>Who? (Actor)</strong> : 12
+            <p>Small and Medium-sized Enterprises (SMEs) in high-compliance sectors (e.g., finance, legal) and their IT/Security Managers.</p>
+        </div>
+        <div class="question-box">
+            <strong>What? (Context)</strong> : 13, 24
+            <p>The security vulnerabilities of their internal and customer-facing **Retrieval-Augmented Generation (RAG) GenAI Bots** leading to **data leakage**.</p>
+        </div>
+        <div class="question-box">
+            <strong>Where? (Location)</strong> : 15
+            <p>In the **interfaces (prompts)** of the GenAI bots and the **underlying RAG database** containing sensitive corporate documents.</p>
+        </div>
+        <div class="question-box">
+            <strong>When? (Timing)</strong> : 14
+            <p>Continuously, but especially **after the implementation** of new AI bots or **updates** to the underlying LLM models.</p>
+        </div>
+        <div class="question-box">
+            <strong>Why? (Reason)</strong> : 8
+            <p>Because the **specialized knowledge** for LLM Red Teaming is lacking in SMEs, and generic penetration tests do not cover these new vulnerabilities.</p>
+        </div>
+        <div class="question-box">
+            <strong>How? (Mechanism)</strong> : 17
+            <p>Through Prompt Injection, Model Hacking, or insecure configurations that force the bot to **disclose confidential internal data**.</p>
+        </div>
+    </div>
+
+    <div class="h5w-statement">
+        <h2>Problem Statement (Final Iteration) : 20</h2>
+        <p style="font-size: 1.3em; text-align: center; font-weight: bold; line-height: 1.5;">
+            How might we
+            <span style="color: #0056b3;">
+                help SME decision-makers
+            </span>
+            <span style="color: #6a0dad;">
+                audit their RAG-powered GenAI bots for Prompt Injection,
+            </span>
+            (re)design, so that the
+            <span style="color: #2ecc71;">
+                risk of critical data leakage
+            </span>
+            is satisfied, taking into account the
+            <span style="color: #f39c12;">
+                limited budgets and lack of internal LLM security expertise
+            </span>
+            ?
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
