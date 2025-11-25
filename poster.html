@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GenAI Red Teaming Poster - A0 Landscape Final</title>
+    <title>RAGShield Poster</title>
+
     <style>
         :root {
-            --bg-color: #0f172a; /* Deep Navy */
-            --card-bg: #1e293b; /* Lighter Navy */
-            --text-main: #f8fafc; /* White/Light Grey */
-            --accent-green: #10b981; /* Success/Money */
-            --accent-red: #ef4444; /* Danger/Risk */
-            --accent-blue: #3b82f6; /* Tech/Info */
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
             --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -25,10 +26,10 @@
             padding: 20px;
         }
 
-        /* A0 Landscape Aspect Ratio Container (Approximate) */
+        /* Poster Container (A0 Landscape Approx.) */
         .poster-container {
-            width: 1400px; 
-            height: 990px;  /* Landscape ratio for A0 (1189x841) */
+            width: 1400px;
+            height: 990px;
             background-color: var(--bg-color);
             color: var(--text-main);
             padding: 40px;
@@ -38,7 +39,7 @@
             box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
 
-        /* HEADER */
+        /* Header */
         header {
             text-align: center;
             border-bottom: 4px solid var(--accent-blue);
@@ -48,34 +49,59 @@
         header .subtitle { font-size: 1.6rem; color: var(--accent-blue); font-weight: 300; }
         header .author { margin-top: 5px; font-size: 1rem; opacity: 0.7; }
 
-        /* GRID LAYOUT - 3 Columns */
+        /* Layout – 3 Columns */
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 30px;
+            gap: 35px;
         }
-        .column { display: flex; flex-direction: column; gap: 20px; }
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-right: 20px;
+            border-right: 1px solid #334155;
+        }
+        .column:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
 
-        /* CARDS */
+        /* Cards */
         .card {
             background-color: var(--card-bg);
             padding: 20px;
             border-radius: 12px;
             border-top: 6px solid var(--accent-blue);
-            flex-grow: 1; 
+            flex-grow: 1;
         }
         .card.danger { border-top-color: var(--accent-red); }
         .card.success { border-top-color: var(--accent-green); }
 
-        h2 { font-size: 1.5rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-        
-        /* VISUAL COMPONENTS - STYLING REMAINS THE SAME FOR LANDSCAPE */
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        h3 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Charts */
         .chart-row {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-evenly;
             margin: 15px 0;
             text-align: center;
         }
+
+        .chart-row > div {
+            flex-basis: 33.33%; /* Forces each chart block to be exactly 1/3 of the width */
+            text-align: center; /* Ensures the donut and label are centered in this new fixed-width block */
+        }
+
         .donut-wrapper {
             position: relative;
             width: 90px;
@@ -103,6 +129,7 @@
             color: #94a3b8;
         }
 
+        /* Process Steps */
         .process-step {
             background: rgba(59, 130, 246, 0.1);
             border-left: 4px solid var(--accent-blue);
@@ -112,16 +139,42 @@
         .step-number {
             font-weight: bold;
             color: var(--accent-blue);
-            font-size: 1.1rem;
+            margin-bottom: 5px;
         }
+
+        /* Image Holder */
         .visual-placeholder {
-            width: 100%; height: 160px;
-            background: #0f172a;
-            border: 2px dashed #475569;
-            display: flex; align-items: center; justify-content: center;
-            color: #94a3b8; font-weight: bold; margin-bottom: 15px;
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            margin-bottom: 15px;
         }
-        
+        .visual-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Stats */
+        .big-stat {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .big-stat-val {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .big-stat-val.green { color: var(--accent-green); }
+        .big-stat-val.red { color: var(--accent-red); }
+        .big-stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        /* Pricing */
         .pricing-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -142,198 +195,226 @@
             display: block;
             font-size: 1.4rem;
             font-weight: bold;
-            color: var(--text-main);
             margin: 8px 0;
         }
-        .price-desc { font-size: 0.8rem; color: #94a3b8; }
-        
-        .big-stat {
-            text-align: center;
-            margin: 10px 0;
+        .price-desc {
+            font-size: 0.8rem;
+            color: #94a3b8;
         }
-        .big-stat-val {
-            font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1;
-        }
-        .big-stat-val.green { color: var(--accent-green); }
-        .big-stat-val.red { color: var(--accent-red); }
-        .big-stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
-        
-        p, div { font-size: 1.05rem; line-height: 1.5; }
 
-        /* FOOTER */
+        p { font-size: 1.05rem; line-height: 1.45; }
+
+        /* Footer */
         footer {
-            display: flex; justify-content: space-between; align-items: center;
-            border-top: 1px solid #334155; padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #334155;
+            padding-top: 15px;
             font-size: 1rem;
         }
         .status-badge {
-            background-color: var(--accent-green); color: #000;
-            padding: 5px 20px; border-radius: 20px; font-weight: bold;
+            background-color: var(--accent-green);
+            color: #000;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
         }
 
-        /* PRINT SETTINGS FOR A0 LANDSCAPE */
+        /* Print - A0 Landscape */
         @media print {
-            @page { 
+            @page {
                 size: A0 landscape;
                 margin: 0;
             }
-            body { background: white; margin: 0; padding: 0; display: block; }
-            .poster-container { 
-                width: 118.9cm; /* A0 width */
-                height: 84.1cm; /* A0 height */
-                box-shadow: none; 
-                padding: 4cm; /* Print margins */
-                -webkit-print-color-adjust: exact;
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+            .poster-container {
+                width: 118.9cm;
+                height: 84.1cm;
+                padding: 4em;
                 print-color-adjust: exact;
-                display: grid; /* Reset grid properties for print context */
+                -webkit-print-color-adjust: exact;
             }
             h1 { font-size: 100pt; }
             h2 { font-size: 40pt; }
-            p, div, li, span { font-size: 18pt !important; line-height: 1.5; }
+            p, div, li, span {
+                font-size: 18pt !important;
+                line-height: 1.5;
+            }
             .big-stat-val { font-size: 90pt; }
-            .donut-wrapper { width: 150pt; height: 150pt; }
-            .donut-inner { width: 120pt; height: 120pt; font-size: 28pt; }
+            .donut-wrapper {
+                width: 150pt;
+                height: 150pt;
+            }
+            .donut-inner {
+                width: 120pt;
+                height: 120pt;
+                font-size: 28pt;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <div class="poster-container">
-        <header>
-            <h1>GenAI Red Teaming for SMEs</h1>
-            <div class="subtitle">Closing the Security Gap in RAG-Powered Chatbots</div>
-            <div class="author">Turning Ideas into Funded Projects (MTE 7119)</div>
-        </header>
+<div class="poster-container">
 
-        <main class="content-grid">
-            
-            <div class="column">
-                <div class="card danger">
-                    <h2>The High Stakes</h2>
-                    <p style="text-align: center; margin-bottom: 10px;">
-                        High AI adoption without security governance creates massive risk.
-                    </p>
-                    
-                    <div class="chart-row">
-                        <div>
-                            <div class="donut-wrapper" style="--p: 60%">
-                                <div class="donut-inner">60%</div>
-                            </div>
-                            <div class="chart-label">AI Adoption (IMD)</div>
+    <!-- HEADER -->
+    <header>
+        <h1>RAGShield</h1>
+        <div class="subtitle">Closing the Security Gap in RAG-Powered Chatbots</div>
+        <div class="author">Turning Ideas into Funded Projects (MTE 7119)</div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="content-grid">
+
+        <!-- COLUMN 1 -->
+        <div class="column">
+
+            <div class="card danger">
+                <h2>The High Stakes</h2>
+                <p style="text-align:center">
+                    Rapid AI adoption without governance exposes companies to serious leakage risks.
+                </p>
+
+                <div class="chart-row">
+                    <div>
+                        <div class="donut-wrapper" style="--p:60%;">
+                            <div class="donut-inner">60%</div>
                         </div>
-                        <div>
-                            <div class="donut-wrapper" style="--p: 52%">
-                                <div class="donut-inner">52%</div>
-                            </div>
-                            <div class="chart-label">No Policy (IMD)</div>
-                        </div>
-                        <div>
-                            <div class="donut-wrapper" style="--p: 50%">
-                                <div class="donut-inner">50%</div>
-                            </div>
-                            <div class="chart-label">Models with Flaws (IT Pro)</div>
-                        </div>
+                        <div class="chart-label">AI Adoption</div>
                     </div>
-                    
-                    <hr style="border:0; border-top:1px solid #334155; margin: 15px 0;">
-
-                    <div class="big-stat">
-                        <div class="big-stat-val red">50%</div>
-                        <div class="big-stat-label">AI Code with Flaws</div>
+                    <div>
+                        <div class="donut-wrapper" style="--p:52%;">
+                            <div class="donut-inner">52%</div>
+                        </div>
+                        <div class="chart-label">No AI Policies</div>
+                    </div>
+                    <div>
+                        <div class="donut-wrapper" style="--p:50%;">
+                            <div class="donut-inner">50%</div>
+                        </div>
+                        <div class="chart-label">RAG Models With Flaws</div>
                     </div>
                 </div>
-                
-                <div class="card">
-                    <h3 style="color:white; border-bottom: none; font-size: 1.2rem;">Problem Statement</h3>
-                    <p style="font-style: italic; border-left: 3px solid var(--accent-red); padding-left: 10px; font-size: 0.95rem;">
-                        "How do we help SMEs audit their RAG-powered bots for data leakage risks, given their limited budgets and lack of internal expertise?"
-                    </p>
-                </div>
 
-                <div class="card">
-                    <h3 style="color:var(--accent-green); border-bottom: none; font-size: 1.2rem;">Innovation & USP</h3>
-                    <p style="font-size: 0.95rem;">We are specialized experts in **LLM/RAG logic flaws**, using **Automation-First** strategy to deliver high-quality security at a fraction of the cost of large firms.</p>
+                <hr style="border:0; border-top:1px solid #334155; margin: 15px 0;">
+
+                <div class="big-stat">
+                    <div class="big-stat-val red">50%</div>
+                    <div class="big-stat-label">Code With LLM Issues</div>
                 </div>
             </div>
 
-            <div class="column">
-                <div class="card success">
-                    <h2>The Solution: RAGShield Audit</h2>
-                    
-                    <div class="visual-placeholder">
-                        [INSERT SCREENSHOT OF<br>MOCK AUDIT REPORT HERE]
-                    </div>
-                    <p style="text-align:center; font-size: 0.9rem; margin-bottom: 15px;">**Final Deliverable:** Automated Vulnerability Report (OWASP Mapped)</p>
+            <div class="card">
+                <h2>Problem</h2>
+                <p style="border-left:3px solid var(--accent-red); padding-left:10px;">
+                    SMEs deploy RAG chatbots but lack tools, budget, and expertise to audit them for data leakage and logic flaws.
+                </p>
+            </div>
 
-                    <h3>Methodology: Automated, Standardized</h3>
-                    <div class="process-step">
-                        <div class="step-number">01. ATTACK</div>
-                        <div>Automated injection attacks using *Promptfoo* & proprietary scripts.</div>
+            <div class="card">
+                <h2>Unique Value</h2>
+                <ul style="margin-left: 16px; font-size: 1rem; line-height:1.45;">
+                    <li>Deep specialization in RAG security weaknesses</li>
+                    <li>Automation-first testing lowers total cost</li>
+                    <li>Enterprise-level assurance at SME pricing</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- COLUMN 2 -->
+        <div class="column">
+            <div class="card success">
+                <h2>RAGShield Audit</h2>
+                <div class="visual-placeholder">
+                    <img src="img.png" alt="Example RAGShield audit report output">
+                </div>
+                <p style="text-align:center; font-size:0.9rem;">
+                    Automated Vulnerability & Remediation Report
+                </p>
+                </br>
+
+                <h3>Automated Workflow</h3>
+
+                <div class="process-step">
+                    <div class="step-number">01. Attack</div>
+                    <p>Automated prompt injections using open-source and proprietary tooling.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02. Audit</div>
+                    <p>Detect leakage, hallucinations, bypass paths, weak reasoning, and unsafe chains.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03. Harden</div>
+                    <p>Prioritized remediation plan mapped to modern compliance frameworks.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- COLUMN 3 -->
+        <div class="column">
+
+            <div class="card">
+                <h2>Market Growth</h2>
+                <div class="big-stat">
+                    <div class="big-stat-val green">$2.15B</div>
+                    <div class="big-stat-label">Swiss AI Market (2025)</div>
+                </div>
+                <div class="big-stat">
+                    <div class="big-stat-val green" style="font-size:2rem;">26.2%</div>
+                    <div class="big-stat-label">CAGR 2025–2031</div>
+                </div>
+            </div>
+
+            <div class="card success" style="flex-grow:2;">
+                <h2>Business Model</h2>
+                <p>Dual revenue strategy ensures recurring revenue and long-term retention.</p>
+
+                <div class="pricing-grid">
+                    <div class="price-box">
+                        <div style="text-transform:uppercase; font-size:0.8rem;">Tier 1: One-Time Audit</div>
+                        <span class="price-tag">CHF 6,000</span>
+                        <div class="price-desc">RAG QuickCheck Assessment</div>
                     </div>
-                    <div class="process-step">
-                        <div class="step-number">02. AUDIT</div>
-                        <div>Identify PII leakage, Hallucinations, and logic bypasses.</div>
+                    <div class="price-box highlight">
+                        <div style="text-transform:uppercase; font-size:0.8rem; color:var(--accent-green);">
+                            Tier 2: Annual Retainer
+                        </div>
+                        <span class="price-tag">CHF 12,000</span>
+                        <div class="price-desc">Ongoing RAGShield Monitoring</div>
                     </div>
-                    <div class="process-step">
-                        <div class="step-number">03. HARDEN</div>
-                        <div>Deliver prioritized remediation plan & compliance mapping.</div>
+                </div>
+
+                <div style="margin-top:25px; background:rgba(0,0,0,0.2); padding:15px; border-radius:8px;">
+                    <h3>Key Metrics</h3>
+                    <div style="display:flex; justify-content:space-between;">
+                        <span>NPV (5 Years):</span>
+                        <strong>CHF 124,166</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; margin-top:5px;">
+                        <span>Break-Even:</span>
+                        <strong>~3.7 Years</strong>
                     </div>
                 </div>
             </div>
 
-            <div class="column">
-                <div class="card">
-                    <h2>Market Growth</h2>
-                    <div class="big-stat">
-                        <div class="big-stat-val green">$2.15B</div>
-                        <div class="big-stat-label">Swiss AI Market (2025)</div>
-                    </div>
-                    <div class="big-stat">
-                        <div class="big-stat-val green" style="font-size: 2rem;">26.2%</div>
-                        <div class="big-stat-label">CAGR (2025-2031)</div>
-                    </div>
-                </div>
+        </div>
+    </main>
 
-                <div class="card success" style="flex-grow: 2;">
-                    <h2>Financials & Model</h2>
-                    <p>Dual revenue stream for stable growth and strong retention.</p>
-                    
-                    <div class="pricing-grid">
-                        <div class="price-box">
-                            <div style="text-transform: uppercase; font-size: 0.8rem;">Tier 1: Acquisition</div>
-                            <span class="price-tag">CHF 6,000</span>
-                            <div class="price-desc">One-off RAG QuickCheck Audit</div>
-                        </div>
-                        <div class="price-box highlight">
-                            <div style="text-transform: uppercase; font-size: 0.8rem; color: var(--accent-green);">Tier 2: Retention</div>
-                            <span class="price-tag">CHF 12,000</span>
-                            <div class="price-desc">Annual RAG Shield Retainer (ARR)</div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 25px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
-                        <h3 style="color: white; margin-bottom: 10px; font-size: 1.2rem;">Key Metrics</h3>
-                        <div style="display: flex; justify-content: space-between;">
-                            <span>Net Present Value (5Y):</span>
-                            <strong>CHF 124,166</strong>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 5px;">
-                            <span>Payback/Break-Even:</span>
-                            <strong>~3.7 Years</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- FOOTER -->
+    <footer>
+        <div><strong>Project:</strong> RAGShield | <strong>Web:</strong> anuman19.github.io/tifp/ | <strong>Founder:</strong> Naveen Anpalagan</div>
+        <div class="status-badge">PROTOTYPE READY</div>
+    </footer>
 
-        </main>
-
-        <footer>
-            <div><strong>Project:</strong> GenAI Red Teaming for SMEs | <strong>Web:</strong> anuman19.github.io/tifp/</div>
-            <div class="status-badge">PROTOTYPE READY</div>
-        </footer>
-    </div>
+</div>
 
 </body>
 </html>
