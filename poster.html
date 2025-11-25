@@ -3,193 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAG Cyber Consulting - Poster</title>
+    <title>GenAI Red Teaming Poster - A0 Landscape Final</title>
     <style>
+        :root {
+            --bg-color: #0f172a; /* Deep Navy */
+            --card-bg: #1e293b; /* Lighter Navy */
+            --text-main: #f8fafc; /* White/Light Grey */
+            --accent-green: #10b981; /* Success/Money */
+            --accent-red: #ef4444; /* Danger/Risk */
+            --accent-blue: #3b82f6; /* Tech/Info */
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7f6;
-            margin: 0;
-            padding: 20px;
+            background-color: #333;
+            font-family: var(--font-main);
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            padding: 20px;
         }
+
+        /* A0 Landscape Aspect Ratio Container (Approximate) */
         .poster-container {
-            width: 100%;
-            max-width: 700px;
-            background-color: #ffffff;
-            border: 8px solid #007bff; /* Primary Brand Color */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            padding: 0;
-            border-radius: 15px;
-            overflow: hidden;
+            width: 1400px; 
+            height: 990px;  /* Landscape ratio for A0 (1189x841) */
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 40px;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            gap: 20px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
-        .header {
-            background-color: #007bff;
-            color: white;
-            padding: 25px 20px;
+
+        /* HEADER */
+        header {
+            text-align: center;
+            border-bottom: 4px solid var(--accent-blue);
+            padding-bottom: 15px;
+        }
+        header h1 { font-size: 3.2rem; text-transform: uppercase; margin-bottom: 8px; }
+        header .subtitle { font-size: 1.6rem; color: var(--accent-blue); font-weight: 300; }
+        header .author { margin-top: 5px; font-size: 1rem; opacity: 0.7; }
+
+        /* GRID LAYOUT - 3 Columns */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+        .column { display: flex; flex-direction: column; gap: 20px; }
+
+        /* CARDS */
+        .card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border-top: 6px solid var(--accent-blue);
+            flex-grow: 1; 
+        }
+        .card.danger { border-top-color: var(--accent-red); }
+        .card.success { border-top-color: var(--accent-green); }
+
+        h2 { font-size: 1.5rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* VISUAL COMPONENTS - STYLING REMAINS THE SAME FOR LANDSCAPE */
+        .chart-row {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
             text-align: center;
         }
-        .header h1 {
-            margin: 0;
-            font-size: 2.2em;
-            letter-spacing: 1px;
+        .donut-wrapper {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent-red) 0% var(--p), #334155 var(--p) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .header p {
-            margin-top: 5px;
-            font-size: 1.1em;
-            font-weight: 300;
-        }
-        .content {
-            padding: 20px 30px;
-        }
-        .section-title {
-            font-size: 1.5em;
-            color: #007bff;
-            border-bottom: 3px solid #007bff;
-            padding-bottom: 5px;
-            margin-top: 25px;
-            margin-bottom: 10px;
+        .donut-inner {
+            width: 70px;
+            height: 70px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
+            font-size: 1.1rem;
         }
-        .section-title span {
-            margin-right: 10px;
+        .chart-label {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #94a3b8;
         }
-        .info-list {
-            list-style: disc;
-            padding-left: 20px;
-            margin-bottom: 20px;
-        }
-        .info-list li {
+
+        .process-step {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 10px;
             margin-bottom: 8px;
-            line-height: 1.4;
         }
-        .highlight {
+        .step-number {
             font-weight: bold;
-            color: #28a745; /* Green for key benefits/solutions */
+            color: var(--accent-blue);
+            font-size: 1.1rem;
         }
-        .financial-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
+        .visual-placeholder {
+            width: 100%; height: 160px;
+            background: #0f172a;
+            border: 2px dashed #475569;
+            display: flex; align-items: center; justify-content: center;
+            color: #94a3b8; font-weight: bold; margin-bottom: 15px;
         }
-        .financial-table td {
-            padding: 8px;
-            border-bottom: 1px dashed #cccccc;
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
         }
-        .financial-table td:first-child {
-            font-weight: bold;
-            width: 60%;
-        }
-        .cta-box {
-            background-color: #ffe4b2; /* Light accent color */
-            border-left: 5px solid #ffc107; /* Yellow accent */
+        .price-box {
+            background: rgba(255,255,255,0.05);
             padding: 15px;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        .cta-box p {
-            margin: 5px 0;
-        }
-        .meta-info {
             text-align: center;
-            margin: 15px 0;
-            font-size: 0.9em;
-            color: #6c757d;
+            border-radius: 8px;
         }
-        .meta-info a {
-            color: #007bff;
-            text-decoration: none;
+        .price-box.highlight {
+            border: 2px solid var(--accent-green);
+            background: rgba(16, 185, 129, 0.1);
+        }
+        .price-tag {
+            display: block;
+            font-size: 1.4rem;
             font-weight: bold;
+            color: var(--text-main);
+            margin: 8px 0;
+        }
+        .price-desc { font-size: 0.8rem; color: #94a3b8; }
+        
+        .big-stat {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .big-stat-val {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .big-stat-val.green { color: var(--accent-green); }
+        .big-stat-val.red { color: var(--accent-red); }
+        .big-stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+        
+        p, div { font-size: 1.05rem; line-height: 1.5; }
+
+        /* FOOTER */
+        footer {
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid #334155; padding-top: 15px;
+            font-size: 1rem;
+        }
+        .status-badge {
+            background-color: var(--accent-green); color: #000;
+            padding: 5px 20px; border-radius: 20px; font-weight: bold;
+        }
+
+        /* PRINT SETTINGS FOR A0 LANDSCAPE */
+        @media print {
+            @page { 
+                size: A0 landscape;
+                margin: 0;
+            }
+            body { background: white; margin: 0; padding: 0; display: block; }
+            .poster-container { 
+                width: 118.9cm; /* A0 width */
+                height: 84.1cm; /* A0 height */
+                box-shadow: none; 
+                padding: 4cm; /* Print margins */
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                display: grid; /* Reset grid properties for print context */
+            }
+            h1 { font-size: 100pt; }
+            h2 { font-size: 40pt; }
+            p, div, li, span { font-size: 18pt !important; line-height: 1.5; }
+            .big-stat-val { font-size: 90pt; }
+            .donut-wrapper { width: 150pt; height: 150pt; }
+            .donut-inner { width: 120pt; height: 120pt; font-size: 28pt; }
         }
     </style>
 </head>
 <body>
 
-<div class="poster-container">
-    <div class="header">
-        <h1>🚀 RAG Cyber Consulting</h1>
-        <p>Smarter Cybersecurity for Swiss SMEs</p>
+    <div class="poster-container">
+        <header>
+            <h1>GenAI Red Teaming for SMEs</h1>
+            <div class="subtitle">Closing the Security Gap in RAG-Powered Chatbots</div>
+            <div class="author">Turning Ideas into Funded Projects (MTE 7119)</div>
+        </header>
+
+        <main class="content-grid">
+            
+            <div class="column">
+                <div class="card danger">
+                    <h2>The High Stakes</h2>
+                    <p style="text-align: center; margin-bottom: 10px;">
+                        High AI adoption without security governance creates massive risk.
+                    </p>
+                    
+                    <div class="chart-row">
+                        <div>
+                            <div class="donut-wrapper" style="--p: 60%">
+                                <div class="donut-inner">60%</div>
+                            </div>
+                            <div class="chart-label">AI Adoption (IMD)</div>
+                        </div>
+                        <div>
+                            <div class="donut-wrapper" style="--p: 52%">
+                                <div class="donut-inner">52%</div>
+                            </div>
+                            <div class="chart-label">No Policy (IMD)</div>
+                        </div>
+                        <div>
+                            <div class="donut-wrapper" style="--p: 50%">
+                                <div class="donut-inner">50%</div>
+                            </div>
+                            <div class="chart-label">Models with Flaws (IT Pro)</div>
+                        </div>
+                    </div>
+                    
+                    <hr style="border:0; border-top:1px solid #334155; margin: 15px 0;">
+
+                    <div class="big-stat">
+                        <div class="big-stat-val red">50%</div>
+                        <div class="big-stat-label">AI Code with Flaws</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 style="color:white; border-bottom: none; font-size: 1.2rem;">Problem Statement</h3>
+                    <p style="font-style: italic; border-left: 3px solid var(--accent-red); padding-left: 10px; font-size: 0.95rem;">
+                        "How do we help SMEs audit their RAG-powered bots for data leakage risks, given their limited budgets and lack of internal expertise?"
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:var(--accent-green); border-bottom: none; font-size: 1.2rem;">Innovation & USP</h3>
+                    <p style="font-size: 0.95rem;">We are specialized experts in **LLM/RAG logic flaws**, using **Automation-First** strategy to deliver high-quality security at a fraction of the cost of large firms.</p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card success">
+                    <h2>The Solution: RAGShield Audit</h2>
+                    
+                    <div class="visual-placeholder">
+                        [INSERT SCREENSHOT OF<br>MOCK AUDIT REPORT HERE]
+                    </div>
+                    <p style="text-align:center; font-size: 0.9rem; margin-bottom: 15px;">**Final Deliverable:** Automated Vulnerability Report (OWASP Mapped)</p>
+
+                    <h3>Methodology: Automated, Standardized</h3>
+                    <div class="process-step">
+                        <div class="step-number">01. ATTACK</div>
+                        <div>Automated injection attacks using *Promptfoo* & proprietary scripts.</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">02. AUDIT</div>
+                        <div>Identify PII leakage, Hallucinations, and logic bypasses.</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">03. HARDEN</div>
+                        <div>Deliver prioritized remediation plan & compliance mapping.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <h2>Market Growth</h2>
+                    <div class="big-stat">
+                        <div class="big-stat-val green">$2.15B</div>
+                        <div class="big-stat-label">Swiss AI Market (2025)</div>
+                    </div>
+                    <div class="big-stat">
+                        <div class="big-stat-val green" style="font-size: 2rem;">26.2%</div>
+                        <div class="big-stat-label">CAGR (2025-2031)</div>
+                    </div>
+                </div>
+
+                <div class="card success" style="flex-grow: 2;">
+                    <h2>Financials & Model</h2>
+                    <p>Dual revenue stream for stable growth and strong retention.</p>
+                    
+                    <div class="pricing-grid">
+                        <div class="price-box">
+                            <div style="text-transform: uppercase; font-size: 0.8rem;">Tier 1: Acquisition</div>
+                            <span class="price-tag">CHF 6,000</span>
+                            <div class="price-desc">One-off RAG QuickCheck Audit</div>
+                        </div>
+                        <div class="price-box highlight">
+                            <div style="text-transform: uppercase; font-size: 0.8rem; color: var(--accent-green);">Tier 2: Retention</div>
+                            <span class="price-tag">CHF 12,000</span>
+                            <div class="price-desc">Annual RAG Shield Retainer (ARR)</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 25px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                        <h3 style="color: white; margin-bottom: 10px; font-size: 1.2rem;">Key Metrics</h3>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Net Present Value (5Y):</span>
+                            <strong>CHF 124,166</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                            <span>Payback/Break-Even:</span>
+                            <strong>~3.7 Years</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <div><strong>Project:</strong> GenAI Red Teaming for SMEs | <strong>Web:</strong> anuman19.github.io/tifp/</div>
+            <div class="status-badge">PROTOTYPE READY</div>
+        </footer>
     </div>
-
-    <div class="content">
-
-        <div class="meta-info">
-            <p><strong>Founder:</strong> Anuman19 | <strong>Website:</strong> <a href="https://anuman19.github.io/tifp/business_plan.html" target="_blank">anuman19.github.io/tifp</a></p>
-        </div>
-
-        <h2 class="section-title"><span>💡</span> Problem</h2>
-        <ul class="info-list">
-            <li>SMEs in Switzerland face **rising cyber threats** but limited budgets.</li>
-            <li>Traditional audits are **slow, costly, inconsistent**.</li>
-            <li>Compliance & system hardening are **complex and time-consuming**.</li>
-        </ul>
-
-        <h2 class="section-title"><span>🌟</span> Solution</h2>
-        <p><strong>AI-Powered, RAG-Enhanced Cybersecurity Services:</strong></p>
-        <ul class="info-list">
-            <li>⚡ **QuickCheck Audit** – automated deep audit in hours.</li>
-            <li>🛡 **Shield Retainer** – subscription with continuous monitoring & guidance.</li>
-        </ul>
-        <p style="font-weight: bold; margin-top: 15px;">Benefits:</p>
-        <ul class="info-list" style="list-style: circle;">
-            <li class="highlight">Fast, actionable security reports</li>
-            <li class="highlight">Cost-efficient for SMEs</li>
-            <li class="highlight">Automation-first, scalable</li>
-        </ul>
-
-        <h2 class="section-title"><span>🎯</span> Market Opportunity</h2>
-        <ul class="info-list">
-            <li>Target: Swiss SMEs (10–500 employees) in IT, finance, and professional services.</li>
-            <li>Competitive edge: **lower cost, faster delivery, AI-powered**.</li>
-        </ul>
-
-        <h2 class="section-title"><span>📈</span> Financial Snapshot</h2>
-        <table class="financial-table">
-            <tr>
-                <td>Year 1 Goal</td>
-                <td>5 QuickCheck + 1 Shield Retainer client</td>
-            </tr>
-            <tr>
-                <td>Initial Investment</td>
-                <td>CHF 65,000</td>
-            </tr>
-            <tr>
-                <td>Payback Period</td>
-                <td>~2.7 years</td>
-            </tr>
-            <tr>
-                <td>Net Present Value (NPV @ 15%)</td>
-                <td>CHF 124,167</td>
-            </tr>
-            <tr>
-                <td>Growth Assumptions</td>
-                <td>3% annual price increase, 5% terminal growth</td>
-            </tr>
-        </table>
-
-        <h2 class="section-title"><span>⚡</span> Why Now</h2>
-        <ul class="info-list">
-            <li>GenAI enables **automated, reliable security workflows**.</li>
-            <li>SMEs increasingly aware of threats but **underinvested**.</li>
-        </ul>
-
-        <h2 class="section-title"><span>📌</span> Call to Action</h2>
-        <ul class="info-list">
-            <li>Seeking **pilot clients** for QuickCheck Audits.</li>
-            <li>Open to **strategic partnerships** with SME associations & tech providers.</li>
-        </ul>
-
-        <div class="cta-box">
-            <p style="font-style: italic; font-weight: bold; color: #cc5200;">
-                “Transforming Swiss SME cybersecurity: faster, smarter, affordable.”
-            </p>
-        </div>
-
-    </div>
-</div>
 
 </body>
 </html>
