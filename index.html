@@ -105,6 +105,14 @@
         .price { font-size: 3rem; font-weight: 800; margin: 20px 0; color: white; }
         .price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
 
+        /* --- RESOURCES SECTION --- */
+        #resources a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
+        #resources a:hover { color: var(--accent); }
+        #resources ul { max-width: 800px; margin: 0 auto; }
+        #resources li { padding: 10px 0; border-bottom: 1px dashed #334155; }
+        #resources li:last-child { border-bottom: none; }
+
+
         /* --- FOOTER --- */
         footer { border-top: 1px solid #334155; padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 80px; }
         
@@ -121,7 +129,7 @@
             <span class="badge mono">Prototype Ready v1.0</span>
             <h1>RAGSHIELD</h1>
             <p>Closing the security gap in RAG-powered chatbots. Automated red-teaming and auditing for Swiss SMEs.</p>
-            <a href="#contact" class="btn">Audit Your Bot</a>
+            <a href="mailto:" class="btn">Audit Your Bot</a>
         </div>
     </header>
 
@@ -208,7 +216,7 @@
                     <div class="price">CHF 6,000</div>
                     <p>One-time assessment including full vulnerability report and remediation plan.</p>
                     <br>
-                    <a href="#" class="btn" style="background: #334155;">Get Assessment</a>
+                    <a href="mailto:" class="btn" style="background: #334155;">Get Assessment</a>
                 </div>
                 <div class="pricing-card featured">
                     <span class="badge" style="margin-bottom:10px;">Best Value</span>
@@ -216,9 +224,30 @@
                     <div class="price">CHF 12,000 <span>/year</span></div>
                     <p>Annual retainer for ongoing monitoring, re-testing, and compliance updates.</p>
                     <br>
-                    <a href="#" class="btn">Start Monitoring</a>
+                    <a href="mailto:ragshield@gmail.com?subject=RAGSHIELD%20Annual%20Monitoring%20Inquiry" class="btn">Start Monitoring</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="resources" style="background: var(--bg-card);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Resources & Security Standards</h2>
+                <p>Relevant frameworks, guidelines and research for secure, compliant Gen‑AI deployments.</p>
+            </div>
+            <ul style="list-style: none; padding-left: 0; color: var(--text-muted); font-size: 1rem; line-height:1.6;">
+                <li><a href="https://www.nist.gov/artificial-intelligence/ai-standards" target="_blank" rel="noopener noreferrer">NIST – AI Standards & Risk Management Framework (AI RMF 1.0)</a></li>
+                <li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf" target="_blank" rel="noopener noreferrer">NIST – Trustworthy and Responsible AI (2025) Report</a></li>
+                <li><a href="https://genai.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP – GenAI / LLM Security Project</a></li>
+                <li><a href="https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/" target="_blank" rel="noopener noreferrer">OWASP – LLM Application Security & Governance Checklist</a></li>
+                <li><a href="https://genai.owasp.org/resource/owasp-genai-security-project-solutions-reference-guide-q2_q325/" target="_blank" rel="noopener noreferrer">OWASP – GenAI Security Project: Solutions Reference Guide (Q2–Q3 2025)</a></li>
+                <li><a href="https://genai.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP – Agentic AI Security Initiative & Red‑Teaming Guides</a></li>
+                <li><a href="https://arxiv.org/abs/2502.08610" target="_blank" rel="noopener noreferrer">“Quantifying Security Vulnerabilities: A Metric‑Driven Security Analysis of Gaps in Current AI Standards” (2025)</a></li>
+                <li><a href="https://arxiv.org/abs/2504.19956" target="_blank" rel="noopener noreferrer">“Securing Agentic AI: A Comprehensive Threat Model and Mitigation Framework for Generative AI Agents” (2025)</a></li>
+                <li><a href="https://arxiv.org/abs/2510.00451" target="_blank" rel="noopener noreferrer">“A Call to Action for a Secure‑by‑Design Generative AI Paradigm” (2025)</a></li>
+                <li><a href="https://insights.pecb.com/ai-cybersecurity-governance-risk-management-intelligent-systems/" target="_blank" rel="noopener noreferrer">PECB Insights – Governance & Risk Management for Intelligent Systems (ISO/IEC alignment)</a></li>
+            </ul>
         </div>
     </section>
 
