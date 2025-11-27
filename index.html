@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAGSHIELD | AI Security for SMEs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #3b82f6;
+            --accent: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
+        .badge {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e293b 0%, var(--bg-dark) 70%);
+        }
+        header h1 { font-size: 3.5rem; margin-bottom: 20px; background: -webkit-linear-gradient(0deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; }
+
+        /* --- STATS SECTION --- */
+        .stats-bar {
+            border-top: 1px solid #334155;
+            border-bottom: 1px solid #334155;
+            padding: 40px 0;
+            margin-bottom: 80px;
+        }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--primary); margin-bottom: 5px; }
+        .stat-item p { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; }
+
+        /* --- CARDS / GRID --- */
+        section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .section-title p { color: var(--text-muted); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid #334155;
+            padding: 40px 30px;
+            border-radius: 16px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+        .card p { color: var(--text-muted); font-size: 1rem; }
+        .icon { font-size: 2rem; margin-bottom: 20px; display: block; }
+
+        /* --- PRICING --- */
+        .pricing-card { text-align: center; border: 1px solid #334155; background: var(--bg-card); padding: 50px; border-radius: 16px; }
+        .pricing-card.featured { border: 2px solid var(--primary); background: linear-gradient(180deg, rgba(59, 130, 246, 0.1), var(--bg-card)); }
+        .price { font-size: 3rem; font-weight: 800; margin: 20px 0; color: white; }
+        .price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+
+        /* --- FOOTER --- */
+        footer { border-top: 1px solid #334155; padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 80px; }
+        
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <span class="badge mono">Prototype Ready v1.0</span>
+            <h1>RAGSHIELD</h1>
+            <p>Closing the security gap in RAG-powered chatbots. Automated red-teaming and auditing for Swiss SMEs.</p>
+            <a href="#contact" class="btn">Audit Your Bot</a>
+        </div>
+    </header>
+
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>59.4%</h3>
+                    <p>Attack Success Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>CHF 2.15B</h3>
+                    <p>Swiss AI Market 2025</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3.7 Yrs</h3>
+                    <p>Break-Even Time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="problem">
+        <div class="container">
+            <div class="section-title">
+                <h2>The High Stakes</h2>
+                <p>Rapid AI adoption without governance exposes companies to serious leakage risks.</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <span class="icon">🚨</span>
+                    <h3>Data Leakage</h3>
+                    <p>SMEs deploy RAG chatbots but lack the budget to audit them, leading to inadvertent exposure of sensitive internal data.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🤖</span>
+                    <h3>Logic Flaws</h3>
+                    <p>Off-the-shelf LLMs are vulnerable to prompt injections and "jailbreaks" that bypass safety rails.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">📉</span>
+                    <h3>Lack of Tools</h3>
+                    <p>Current enterprise security tools are too expensive and complex for the average Swiss SME.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution">
+        <div class="container">
+            <div class="section-title">
+                <h2>The RAGSHIELD Workflow</h2>
+                <p>Automated Vulnerability & Remediation Report</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <span class="mono" style="color:var(--danger)">01. ATTACK</span>
+                    <h3 style="margin-top:10px;">Automated Injection</h3>
+                    <p>We use proprietary tooling to launch automated prompt injections and stress-test your chatbot.</p>
+                </div>
+                <div class="card">
+                    <span class="mono" style="color:var(--accent)">02. AUDIT</span>
+                    <h3 style="margin-top:10px;">Detect Weakness</h3>
+                    <p>We detect leakage, hallucinations, bypass paths, weak reasoning, and unsafe chains.</p>
+                </div>
+                <div class="card">
+                    <span class="mono" style="color:var(--primary)">03. HARDEN</span>
+                    <h3 style="margin-top:10px;">Remediation Plan</h3>
+                    <p>You receive a prioritized remediation plan mapped to modern compliance frameworks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Simple SME Pricing</h2>
+                <p>Enterprise-level assurance at a fraction of the cost.</p>
+            </div>
+            <div class="grid" style="max-width: 900px; margin: 0 auto;">
+                <div class="pricing-card">
+                    <h3>QuickCheck Audit</h3>
+                    <div class="price">CHF 6,000</div>
+                    <p>One-time assessment including full vulnerability report and remediation plan.</p>
+                    <br>
+                    <a href="#" class="btn" style="background: #334155;">Get Assessment</a>
+                </div>
+                <div class="pricing-card featured">
+                    <span class="badge" style="margin-bottom:10px;">Best Value</span>
+                    <h3>RAGShield Monitor</h3>
+                    <div class="price">CHF 12,000 <span>/year</span></div>
+                    <p>Annual retainer for ongoing monitoring, re-testing, and compliance updates.</p>
+                    <br>
+                    <a href="#" class="btn">Start Monitoring</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p class="mono">Project: RAGShield | Founder: Naveen Anpalagan</p>
+            <p>Turning Ideas into Funded Projects (MTE 7119) | Bern University of Applied Sciences</p>
+            <br>
+            <p>&copy; 2025 RAGSHIELD. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
