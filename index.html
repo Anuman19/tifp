@@ -3,280 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAGSHIELD | AI Security for SMEs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>RAGShield - Closing the Security Gap in RAG-Powered Applications</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* --- VARIABLES & RESET --- */
-        :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --primary: #3b82f6;
-            --accent: #06b6d4;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --danger: #ef4444;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: #0c0e15; /* Very dark navy/black */
+            color: #e2e8f0; /* Light text */
         }
-
-        h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-
-        /* --- UTILITIES --- */
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
-        .badge {
-            background: rgba(6, 182, 212, 0.15);
-            color: var(--accent);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        /* --- HEADER --- */
-        header {
-            padding: 120px 0 80px;
+        .section-header {
             text-align: center;
-            background: radial-gradient(circle at top, #1e293b 0%, var(--bg-dark) 70%);
+            margin-bottom: 2rem;
         }
-        header h1 { font-size: 3.5rem; margin-bottom: 20px; background: -webkit-linear-gradient(0deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        header p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px; }
-
-        /* --- STATS SECTION --- */
-        .stats-bar {
-            border-top: 1px solid #334155;
-            border-bottom: 1px solid #334155;
-            padding: 40px 0;
-            margin-bottom: 80px;
+        .header-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #06b6d4; /* Cyan 500 */
         }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; }
-        .stat-item h3 { font-size: 2.5rem; color: var(--primary); margin-bottom: 5px; }
-        .stat-item p { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; }
-
-        /* --- CARDS / GRID --- */
-        section { padding: 80px 0; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .section-title p { color: var(--text-muted); }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid #334155;
-            padding: 40px 30px;
-            border-radius: 16px;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
+        .problem-card {
+            /* Retain border and background for definition */
+            border: 1px solid #dc2626;
+            background-color: #1a0e0e;
         }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .card h3 { margin-bottom: 15px; font-size: 1.5rem; }
-        .card p { color: var(--text-muted); font-size: 1rem; }
-        .icon { font-size: 2rem; margin-bottom: 20px; display: block; }
-
-        /* Image placeholder specific styles */
-        .image-placeholder {
-            background-color: #2a3547; /* Slightly lighter dark background */
-            border: 2px dashed #475569;
-            border-radius: 8px;
-            min-height: 250px; /* Adjust as needed */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 40px auto; /* Centering and spacing */
-            max-width: 800px; /* Max width for the image */
-            overflow: hidden;
+        .solution-card {
+            /* Retain border and background for definition */
+            border: 1px solid #06b6d4;
+            background-color: #101925;
         }
-        .image-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Ensures the image fits within the placeholder */
+        .bg-gradient-tech {
+            background-image: linear-gradient(to right, #1e3a8a, #0c0e15, #1e3a8a);
         }
-        .image-placeholder p {
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-
-        /* --- PRICING --- */
-        .pricing-card { text-align: center; border: 1px solid #334155; background: var(--bg-card); padding: 50px; border-radius: 16px; }
-        .pricing-card.featured { border: 2px solid var(--primary); background: linear-gradient(180deg, rgba(59, 130, 246, 0.1), var(--bg-card)); }
-        .price { font-size: 3rem; font-weight: 800; margin: 20px 0; color: white; }
-        .price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
-
-        /* --- RESOURCES SECTION --- */
-        #resources a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
-        #resources a:hover { color: var(--accent); }
-        #resources ul { max-width: 800px; margin: 0 auto; }
-        #resources li { padding: 10px 0; border-bottom: 1px dashed #334155; }
-        #resources li:last-child { border-bottom: none; }
-
-        /* --- FOOTER --- */
-        footer { border-top: 1px solid #334155; padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 80px; }
-
-        /* --- MOBILE --- */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
+        .feature-icon-box {
+            background-color: #1e293b;
+            border-radius: 9999px;
+            padding: 1rem;
+            display: inline-flex;
+            margin-bottom: 0.75rem;
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <span class="badge mono">Prototype Ready v1.0</span>
-            <h1>RAGSHIELD</h1>
-            <p>Closing the security gap in RAG-powered chatbots. Automated red-teaming and auditing for Swiss SMEs.</p>
-            <a href="mailto:" class="btn">Audit Your Bot</a>
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-sm shadow-xl shadow-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tight text-cyan-500">RAGShield</div>
+            <a href="#pricing" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-semibold rounded-full transition duration-200">
+                Request Audit
+            </a>
         </div>
     </header>
-    <section class="stats-bar">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>59.4%</h3>
-                    <p>Attack Success Rate</p>
-                </div>
-                <div class="stat-item">
-                    <h3>CHF 2.15B</h3>
-                    <p>Swiss AI Market 2025</p>
-                </div>
-                <div class="stat-item">
-                    <h3>3.7 Yrs</h3>
-                    <p>Break-Even Time</p>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-slate-950 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-4 leading-tight">
+                <span class="text-white">Closing the Security Gap in</span>
+                <span class="text-cyan-500 block mt-2">RAG-Powered Applications</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
+                Automated RAG Security Auditing — Enterprise-level assurance built for SMEs.
+            </p>
+            <a href="#solution" class="inline-block px-8 py-3 bg-cyan-600 hover:bg-cyan-500 text-white text-lg font-bold rounded-full transition duration-300 transform hover:scale-105">
+                See How It Works →
+            </a>
+        </div>
+        <!-- Background Grid Effect -->
+        <div class="absolute inset-0 z-0 opacity-10">
+            <svg class="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid-pattern" width="80" height="80" patternUnits="userSpaceOnUse">
+                        <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#0f172a" stroke-width="1"></path>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-pattern)"></rect>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Image Placeholder Section -->
+    <section class="py-12 bg-slate-900/50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="w-full h-auto aspect-video bg-slate-800 rounded-xl border-2 border-dashed border-cyan-700/50 flex items-center justify-center p-8">
+                <img src="visual.png" alt="Thumbnail, visualization or image of RAGShield project/idea" class="w-full h-full object-contain opacity-50" onerror="this.style.display='none'; this.parentNode.querySelector('.placeholder-text').style.display='block';">
+                <div class="placeholder-text text-center text-gray-500">
+                    <p class="text-xl font-semibold mb-2">Project Visualization Placeholder</p>
+                    <p class="text-sm">This space is reserved for the 'Thumbnail, visualization or image' required for the Stage-up Application (src is intentionally left blank).</p>
                 </div>
             </div>
         </div>
     </section>
-    <section id="problem">
-        <div class="container">
-            <div class="section-title">
-                <h2>The High Stakes</h2>
-                <p>Rapid AI adoption without governance exposes companies to serious leakage risks.</p>
+
+    <!-- Problem & Solution Section -->
+    <section class="py-16 bg-gradient-tech">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+            <!-- Problem Card -->
+            <div class="p-8 rounded-xl problem-card hover:shadow-2xl transition duration-300 shadow-xl shadow-red-900/20">
+                <h2 class="text-3xl font-extrabold mb-4 flex items-center text-red-500">
+                    <!-- Broken Lock SVG Icon -->
+                    <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8zM9 13l2 2 4-4"></path></svg>
+                    The Exposure (PROBLEM)
+                </h2>
+                <p class="text-gray-300 mb-6">SMEs are adopting RAG rapidly, opening their systems to new, specialized security risks they are unprepared for. This results in high risk of breaches and compliance failure.</p>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start">
+                        <span class="text-red-500 text-lg mr-2 font-bold">•</span>
+                        **52%** of SMEs lack formal AI governance.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-500 text-lg mr-2 font-bold">•</span>
+                        Common failures: Prompt Injection, Data Leakage, Vector-Store Exposure.
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-500 text-lg mr-2 font-bold">•</span>
+                        No budget or expertise for specialized RAG security testing.
+                    </li>
+                </ul>
             </div>
-            <div class="grid">
-                <div class="card">
-                    <span class="icon">🚨</span>
-                    <h3>Data Leakage</h3>
-                    <p>SMEs deploy RAG chatbots but lack the budget to audit them, leading to inadvertent exposure of sensitive internal data.</p>
-                </div>
-                <div class="card">
-                    <span class="icon">🤖</span>
-                    <h3>Logic Flaws</h3>
-                    <p>Off-the-shelf LLMs are vulnerable to prompt injections and "jailbreaks" that bypass safety rails.</p>
-                </div>
-                <div class="card">
-                    <span class="icon">📉</span>
-                    <h3>Lack of Tools</h3>
-                    <p>Current enterprise security tools are too expensive and complex for the average Swiss SME.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="solution">
-        <div class="container">
-            <div class="section-title">
-                <h2>The RAGSHIELD Workflow</h2>
-                <p>Automated Vulnerability & Remediation Report</p>
-            </div>
-            <div class="grid">
-                <div class="card">
-                    <span class="mono" style="color:var(--danger)">01. ATTACK</span>
-                    <h3 style="margin-top:10px;">Automated Injection</h3>
-                    <p>We use proprietary tooling to launch automated prompt injections and stress-test your chatbot.</p>
-                </div>
-                <div class="card">
-                    <span class="mono" style="color:var(--accent)">02. AUDIT</span>
-                    <h3 style="margin-top:10px;">Detect Weakness</h3>
-                    <p>We detect leakage, hallucinations, bypass paths, weak reasoning, and unsafe chains.</p>
-                </div>
-                <div class="card">
-                    <span class="mono" style="color:var(--primary)">03. HARDEN</span>
-                    <h3 style="margin-top:10px;">Remediation Plan</h3>
-                    <p>You receive a prioritized remediation plan mapped to modern compliance frameworks.</p>
+
+            <!-- Solution Card -->
+            <div id="solution" class="p-8 rounded-xl solution-card hover:shadow-2xl transition duration-300 shadow-xl shadow-cyan-900/20">
+                <h2 class="text-3xl font-extrabold mb-4 flex items-center text-cyan-500">
+                    <!-- Shield SVG Icon -->
+                    <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.61-4.21A30.608 30.608 0 0112 21 30.608 30.608 0 012.39 9.79C1.19 7.99 1 7.23 1 6V5c0-1.1.9-2 2-2h18a2 2 0 012 2v1c0 1.23-.19 1.99-1.39 3.79z"></path></svg>
+                    The Assurance (RAGShield)
+                </h2>
+                <p class="text-gray-300 mb-6">RAGShield is the automated security-as-a-service platform purpose-built to audit, monitor, and validate the integrity of your RAG pipeline.</p>
+                <p class="font-semibold text-green-400">Delivers enterprise-level assurance at an SME-friendly price point.</p>
+                <div class="mt-4 text-sm font-semibold text-gray-300">
+                    <p class="mb-2">Automated & Repeatable Audits:</p>
+                    <ul class="space-y-1 ml-4 list-disc list-inside">
+                        <li>Prompt-Injection & Jailbreak Testing</li>
+                        <li>Data Leakage (PII & Proprietary) Detection</li>
+                        <li>Retrieval-Pipeline Integrity Analysis</li>
+                        <li>Hallucination Benchmarking</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="image-placeholder">
-                <img src="visual.png" alt="RAGShield Workflow Diagram">
+        </div>
+    </section>
+
+    <!-- Core Capabilities -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header">
+                <h2 class="text-3xl font-extrabold text-cyan-500">Core Capabilities</h2>
+                <p class="text-gray-400 mt-2">Specialized checks for the unique attack surface of RAG architectures.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <!-- Cap 1 -->
+                <div class="p-5 rounded-lg bg-slate-800 hover:bg-slate-700 transition duration-200">
+                    <div class="feature-icon-box text-red-400 bg-red-900/40">
+                        <span class="text-2xl">🚨</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">Jailbreak Testing</h3>
+                    <p class="text-sm text-gray-400">Automated stress-testing against prompt injection and model jailbreaks.</p>
+                </div>
+                <!-- Cap 2 -->
+                <div class="p-5 rounded-lg bg-slate-800 hover:bg-slate-700 transition duration-200">
+                    <div class="feature-icon-box text-cyan-400 bg-cyan-900/40">
+                        <span class="text-2xl">🕵️</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">Leakage Detection</h3>
+                    <p class="text-sm text-gray-400">Active scanning for PII, proprietary data, and unintended information disclosures.</p>
+                </div>
+                <!-- Cap 3 -->
+                <div class="p-5 rounded-lg bg-slate-800 hover:bg-slate-700 transition duration-200">
+                    <div class="feature-icon-box text-green-400 bg-green-900/40">
+                        <span class="text-2xl">🧬</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">Vector Integrity</h3>
+                    <p class="text-sm text-gray-400">Checks the retrieval pipeline and vector-database integrity for poisoned data.</p>
+                </div>
+                <!-- Cap 4 -->
+                <div class="p-5 rounded-lg bg-slate-800 hover:bg-slate-700 transition duration-200">
+                    <div class="feature-icon-box text-yellow-400 bg-yellow-900/40">
+                        <span class="text-2xl">🧠</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">Hallucination Benchmarking</h3>
+                    <p class="text-sm text-gray-400">Quantifiable traceability checks and misinfo risk reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition & Why We Win -->
+    <section class="py-16 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10">
+
+            <!-- Value Proposition -->
+            <div>
+                <h2 class="text-3xl font-extrabold mb-4 text-white">Value Proposition</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-green-400 text-xl mr-3 mt-1">&#10003;</span>
+                        <div>
+                            <p class="font-bold text-lg">Hyper-Specialization</p>
+                            <p class="text-gray-400 text-sm">Purpose-built for RAG security, unlike generic AI security tools.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-400 text-xl mr-3 mt-1">&#10003;</span>
+                        <div>
+                            <p class="font-bold text-lg">Automation-First Audit</p>
+                            <p class="text-gray-400 text-sm">Faster, consistent, and repeatable audits that scale with your application.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-400 text-xl mr-3 mt-1">&#10003;</span>
+                        <div>
+                            <p class="font-bold text-lg">Compliance Ready</p>
+                            <p class="text-gray-400 text-sm">Reports designed for Swiss and EU data-protection & legal expectations.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-green-400 text-xl mr-3 mt-1">&#10003;</span>
+                        <div>
+                            <p class="font-bold text-lg">Low Barrier to Entry</p>
+                            <p class="text-gray-400 text-sm">Requires no in-house AI security expertise, making advanced security accessible.</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
-        </div>
-    </section>
-    <section id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Simple SME Pricing</h2>
-                <p>Enterprise-level assurance at a fraction of the cost.</p>
-            </div>
-            <div class="grid" style="max-width: 900px; margin: 0 auto;">
-                <div class="pricing-card">
-                    <h3>QuickCheck Audit</h3>
-                    <div class="price">CHF 6,000</div>
-                    <p>One-time assessment including full vulnerability report and remediation plan.</p>
-                    <br>
-                    <a href="mailto:" class="btn" style="background: #334155;">Get Assessment</a>
-                </div>
-                <div class="pricing-card featured">
-                    <span class="badge" style="margin-bottom:10px;">Best Value</span>
-                    <h3>RAGShield Monitor</h3>
-                    <div class="price">CHF 12,000 <span>/year</span></div>
-                    <p>Annual retainer for ongoing monitoring, re-testing, and compliance updates.</p>
-                    <br>
-                    <a href="mailto:ragshield@gmail.com?subject=RAGSHIELD%20Annual%20Monitoring%20Inquiry" class="btn">Start Monitoring</a>
+            <!-- Why We Win -->
+            <div>
+                <h2 class="text-3xl font-extrabold mb-4 text-white">Why We Win</h2>
+                <p class="text-gray-400 mb-6">We are uniquely positioned to capture the emerging SME RAG security market:</p>
+                <div class="space-y-3 p-5 rounded-lg bg-slate-800 border-l-4 border-cyan-600">
+                    <p class="font-bold text-lg text-cyan-500">Proprietary Automated Testing Suite</p>
+                    <p class="text-gray-300">Our core differentiator: A proprietary testing toolchain specific to RAG pipeline vulnerabilities.</p>
+                    <p class="font-bold text-lg text-white pt-2">SME-Friendly Pricing</p>
+                    <p class="text-gray-300">High-value, enterprise-level deliverables accessible to smaller business budgets.</p>
+                    <p class="font-bold text-lg text-white pt-2">Market Timing</p>
+                    <p class="text-gray-300">We are the first automated, specialized RAG security solution in Switzerland, capitalizing on the security readiness gap.</p>
                 </div>
             </div>
         </div>
     </section>
-    <section id="resources" style="background: var(--bg-card);">
-        <div class="container">
-            <div class="section-title">
-                <h2>Resources & Security Standards</h2>
-                <p>Relevant frameworks, guidelines and research for secure, compliant Gen‑AI deployments.</p>
+
+    <!-- Pricing / Business Model Section -->
+    <section id="pricing" class="py-20 bg-slate-950">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-extrabold text-cyan-500 mb-3">Simple, Transparent Pricing</h2>
+            <p class="text-gray-400 mb-12">Targeted security solutions designed for quick deployment and continuous assurance.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- QuickCheck Audit -->
+                <div class="p-8 bg-slate-800 rounded-xl border border-cyan-600 shadow-xl shadow-cyan-900/20">
+                    <h3 class="text-2xl font-bold mb-2 text-white">RAG QuickCheck Audit</h3>
+                    <p class="text-5xl font-extrabold mb-4 text-cyan-400">
+                        CHF 6,000
+                    </p>
+                    <p class="text-gray-300 mb-6">One-time deep-dive audit of your RAG application's current security posture.</p>
+                    <ul class="text-left text-gray-400 space-y-2 mb-8 text-sm">
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Full Automated Vulnerability Scan</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Prioritized Remediation Roadmap</li>
+                        <li class="flex items-center"><span class="text-cyan-400 mr-2">✓</span> Compliance Risk Assessment</li>
+                    </ul>
+                    <a href="#" class="block w-full py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg transition duration-200">
+                        Start QuickCheck
+                    </a>
+                </div>
+
+                <!-- Monitoring Retainer -->
+                <div class="p-8 bg-slate-800 rounded-xl border border-white/10 shadow-xl shadow-white/5">
+                    <h3 class="text-2xl font-bold mb-2 text-white">RAGShield Monitoring</h3>
+                    <p class="text-5xl font-extrabold mb-4 text-white">
+                        CHF 12,000
+                    </p>
+                    <p class="text-gray-300 mb-6">Annual retainer including continuous oversight and re-audits as your system evolves.</p>
+                    <ul class="text-left text-gray-400 space-y-2 mb-8 text-sm">
+                        <li class="flex items-center"><span class="text-white mr-2">✓</span> All QuickCheck features</li>
+                        <li class="flex items-center"><span class="text-white mr-2">✓</span> Periodic Quarterly Re-audits</li>
+                        <li class="flex items-center"><span class="text-white mr-2">✓</span> Continuous Alerting & Monitoring</li>
+                        <li class="flex items-center"><span class="text-white mr-2">✓</span> Evolving Threat Detection</li>
+                    </ul>
+                    <a href="#" class="block w-full py-3 bg-gray-600 hover:bg-gray-500 text-white font-bold rounded-lg transition duration-200">
+                        Discuss Retainer
+                    </a>
+                </div>
+
             </div>
-            <ul style="list-style: none; padding-left: 0; color: var(--text-muted); font-size: 1rem; line-height:1.6;">
-                <li><a href="https://www.nist.gov/artificial-intelligence/ai-standards" target="_blank" rel="noopener noreferrer">NIST – AI Standards & Risk Management Framework (AI RMF 1.0)</a></li>
-                <li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf" target="_blank" rel="noopener noreferrer">NIST – Trustworthy and Responsible AI (2025) Report</a></li>
-                <li><a href="https://genai.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP – GenAI / LLM Security Project</a></li>
-                <li><a href="https://genai.owasp.org/resource/llm-applications-cybersecurity-and-governance-checklist-english/" target="_blank" rel="noopener noreferrer">OWASP – LLM Application Security & Governance Checklist</a></li>
-                <li><a href="https://genai.owasp.org/resource/owasp-genai-security-project-solutions-reference-guide-q2_q325/" target="_blank" rel="noopener noreferrer">OWASP – GenAI Security Project: Solutions Reference Guide (Q2–Q3 2025)</a></li>
-                <li><a href="https://genai.owasp.org/" target="_blank" rel="noopener noreferrer">OWASP – Agentic AI Security Initiative & Red‑Teaming Guides</a></li>
-                <li><a href="https://arxiv.org/abs/2502.08610" target="_blank" rel="noopener noreferrer">“Quantifying Security Vulnerabilities: A Metric‑Driven Security Analysis of Gaps in Current AI Standards” (2025)</a></li>
-                <li><a href="https://arxiv.org/abs/2504.19956" target="_blank" rel="noopener noreferrer">“Securing Agentic AI: A Comprehensive Threat Model and Mitigation Framework for Generative AI Agents” (2025)</a></li>
-                <li><a href="https://arxiv.org/abs/2510.00451" target="_blank" rel="noopener noreferrer">“A Call to Action for a Secure‑by‑Design Generative AI Paradigm” (2025)</a></li>
-                <li><a href="https://insights.pecb.com/ai-cybersecurity-governance-risk-management-intelligent-systems/" target="_blank" rel="noopener noreferrer">PECB Insights – Governance & Risk Management for Intelligent Systems (ISO/IEC alignment)</a></li>
-            </ul>
         </div>
     </section>
-    <footer id="contact">
-        <div class="container">
-            <p class="mono">Project: RAGShield | Founder: Naveen Anpalagan</p>
-            <p>Turning Ideas into Funded Projects (MTE 7119) | Bern University of Applied Sciences</p>
-            <br>
-            <p>&copy; 2025 RAGSHIELD. All rights reserved.</p>
+
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 RAGShield. Specialized RAG Security Auditing for SMEs in Switzerland.</p>
+            <p class="mt-2 text-xs">Developed for TIIFP Application. All rights reserved.</p>
         </div>
     </footer>
+
 </body>
 </html>
