@@ -18,7 +18,6 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
@@ -84,7 +83,6 @@
         .section-title p { color: var(--text-muted); }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        
         .card {
             background: var(--bg-card);
             border: 1px solid #334155;
@@ -99,6 +97,30 @@
         .card p { color: var(--text-muted); font-size: 1rem; }
         .icon { font-size: 2rem; margin-bottom: 20px; display: block; }
 
+        /* Image placeholder specific styles */
+        .image-placeholder {
+            background-color: #2a3547; /* Slightly lighter dark background */
+            border: 2px dashed #475569;
+            border-radius: 8px;
+            min-height: 250px; /* Adjust as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px auto; /* Centering and spacing */
+            max-width: 800px; /* Max width for the image */
+            overflow: hidden;
+        }
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures the image fits within the placeholder */
+        }
+        .image-placeholder p {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+
         /* --- PRICING --- */
         .pricing-card { text-align: center; border: 1px solid #334155; background: var(--bg-card); padding: 50px; border-radius: 16px; }
         .pricing-card.featured { border: 2px solid var(--primary); background: linear-gradient(180deg, rgba(59, 130, 246, 0.1), var(--bg-card)); }
@@ -112,10 +134,9 @@
         #resources li { padding: 10px 0; border-bottom: 1px dashed #334155; }
         #resources li:last-child { border-bottom: none; }
 
-
         /* --- FOOTER --- */
         footer { border-top: 1px solid #334155; padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 80px; }
-        
+
         /* --- MOBILE --- */
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
@@ -123,7 +144,6 @@
     </style>
 </head>
 <body>
-
     <header>
         <div class="container">
             <span class="badge mono">Prototype Ready v1.0</span>
@@ -132,7 +152,6 @@
             <a href="mailto:" class="btn">Audit Your Bot</a>
         </div>
     </header>
-
     <section class="stats-bar">
         <div class="container">
             <div class="stats-grid">
@@ -151,7 +170,6 @@
             </div>
         </div>
     </section>
-
     <section id="problem">
         <div class="container">
             <div class="section-title">
@@ -177,7 +195,6 @@
             </div>
         </div>
     </section>
-
     <section id="solution">
         <div class="container">
             <div class="section-title">
@@ -201,9 +218,13 @@
                     <p>You receive a prioritized remediation plan mapped to modern compliance frameworks.</p>
                 </div>
             </div>
+
+            <div class="image-placeholder">
+                <img src="visual.png" alt="RAGShield Workflow Diagram">
+            </div>
+
         </div>
     </section>
-
     <section id="pricing">
         <div class="container">
             <div class="section-title">
@@ -229,7 +250,6 @@
             </div>
         </div>
     </section>
-
     <section id="resources" style="background: var(--bg-card);">
         <div class="container">
             <div class="section-title">
@@ -250,7 +270,6 @@
             </ul>
         </div>
     </section>
-
     <footer id="contact">
         <div class="container">
             <p class="mono">Project: RAGShield | Founder: Naveen Anpalagan</p>
@@ -259,6 +278,5 @@
             <p>&copy; 2025 RAGSHIELD. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>
